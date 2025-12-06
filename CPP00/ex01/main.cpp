@@ -1,4 +1,5 @@
 #include "PhoneBook.hpp"
+#include <iostream>
 #include <memory>
 
 std::string trim(const std::string& str) {

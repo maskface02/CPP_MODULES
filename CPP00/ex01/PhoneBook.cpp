@@ -1,5 +1,6 @@
 #include "PhoneBook.hpp"
 #include <cstddef>
+#include <cctype>
 
 PhoneBook::PhoneBook() : currentIndex(0), contactCount(0) {}
 
