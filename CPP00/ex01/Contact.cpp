@@ -1,22 +1,22 @@
 #include "Contact.hpp"
 
-void Contact::setFirstName(std::string& name) {
+void Contact::setFirstName(const std::string& name) {
     firstName = name;
 }
 
-void Contact::setLastName(std::string& name) {
+void Contact::setLastName(const std::string& name) {
     lastName = name;
 }
 
-void Contact::setNickname(std::string& nick) {
+void Contact::setNickname(const std::string& nick) {
     nickname = nick;
 }
 
-void Contact::setPhoneNumber(std::string& phone) {
+void Contact::setPhoneNumber(const std::string& phone) {
     phoneNumber = phone;
 }
 
-void Contact::setDarkestSecret(std::string& secret) {
+void Contact::setDarkestSecret(const std::string& secret) {
     darkestSecret = secret;
 }
 
