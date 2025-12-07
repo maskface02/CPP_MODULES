@@ -1,15 +1,16 @@
-NAME		= phonebook
+NAME		= zombie
+
+# Compiler and flags
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
-SRCS		= Contact.cpp PhoneBook.cpp main.cpp
+
+SRCS		= main.cpp Zombie.cpp zombieHorde.cpp
 OBJS		= $(SRCS:.cpp=.o)
-HEADERS		= PhoneBook.hpp Contact.hpp
+HEADERS		= Zombie.hpp
 
 GREEN		= \033[0;32m
 RED			= \033[0;31m
 YELLOW		= \033[0;33m
-BLUE		= \033[0;34m
-MAGENTA		= \033[0;35m
 CYAN		= \033[0;36m
 BOLD		= \033[1m
 NC			= \033[0m
@@ -18,9 +19,9 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "$(CYAN)$(BOLD)🔗 Linking objects...$(NC)"
-	@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)$(BOLD)✓ $(NAME) created successfully!$(NC)"
-	@echo "$(MAGENTA)📞 Run with: ./$(NAME)$(NC)"
+	@echo "$(YELLOW)🧟 Run with: ./$(NAME)$(NC)"
 
 %.o: %.cpp $(HEADERS)
 	@echo "$(YELLOW)⚙️  Compiling $<...$(NC)"
@@ -37,7 +38,6 @@ fclean: clean
 	@echo "$(GREEN)✓ Full clean complete!$(NC)"
 
 re: fclean all
-	@echo "$(BLUE)$(BOLD)♻️  Rebuild complete!$(NC)"
+	@echo "$(CYAN)$(BOLD)♻️  Rebuild complete!$(NC)"
 
 .PHONY: all clean fclean re
-
