@@ -11,8 +11,11 @@ private:
     int currentIndex;
     int contactCount;
 
-    std::string truncateString(const std::string& str, size_t width) const;
-    void displayContactRow(int index, const Contact& contact);
+    std::string truncateString(std::string str, size_t width) const;
+    void displayContactRow(int index, Contact contact);
+    std::string checkInput(std::string input);
+    int ftAtoi(std::string str);
+    int isNumber(std::string str); 
 
 public:
     PhoneBook();

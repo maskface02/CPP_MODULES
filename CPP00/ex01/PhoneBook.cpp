@@ -1,17 +1,15 @@
 #include "PhoneBook.hpp"
-#include <cstddef>
-#include <cctype>
 
 PhoneBook::PhoneBook() : currentIndex(0), contactCount(0) {}
 
-std::string PhoneBook::truncateString(const std::string& str, size_t width) const {
+std::string PhoneBook::truncateString(std::string str, size_t width) const {
 
     if (str.length() > width)
         return str.substr(0, width - 1) + ".";
     return str;
 }
 
-void PhoneBook::displayContactRow(int index, const Contact& contact){
+void PhoneBook::displayContactRow(int index, Contact contact){
 
     std::cout << "|"<< std::left << std::setw(10) << index;
     std::cout << "|"<< std::left << std::setw(10) << truncateString(contact.getFirstName(), 10);
@@ -20,7 +18,7 @@ void PhoneBook::displayContactRow(int index, const Contact& contact){
     std::cout << "|"<< std::left << std::endl;
 }
 
-std::string checkInput(std::string input) {
+std::string PhoneBook::checkInput(std::string input) {
   for(size_t i = 0; i < input.length(); i++) {
     if (!isprint(input[i]))
       return "";
@@ -74,7 +72,7 @@ void PhoneBook::displayAllContacts(){
         displayContactRow(i, contacts[i]);
 }
 
-int ft_atoi(std::string str) {
+int PhoneBook::ftAtoi(std::string str) {
     int res = 0;
     size_t i = 0;
     while (i < str.length() && isspace(str[i])) i++;
@@ -93,7 +91,7 @@ int ft_atoi(std::string str) {
     return res*negative;
 }
 
-int isNumber(std::string str) {
+int PhoneBook::isNumber(std::string str) {
   size_t i= 0;
   if (str[0] == '-')
       ++i;
@@ -132,7 +130,7 @@ void PhoneBook::searchContact() {
       return;
   }
 
-  int index = ft_atoi(input);
+  int index = ftAtoi(input);
   if (index < 0 || index >= contactCount) {
       std::cout << "Index out of range!" << std::endl;
       return;
