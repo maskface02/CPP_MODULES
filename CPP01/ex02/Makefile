@@ -1,10 +1,9 @@
-NAME		= zombie
+NAME		= brain
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRCS		= main.cpp Zombie.cpp zombieHorde.cpp
+SRCS		= main.cpp
 OBJS		= $(SRCS:.cpp=.o)
-HEADERS		= Zombie.hpp
 
 GREEN		= \033[0;32m
 RED			= \033[0;31m
@@ -19,7 +18,7 @@ $(NAME): $(OBJS)
 	@echo "$(CYAN)$(BOLD)🔗 Linking objects...$(NC)"
 	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)$(BOLD)✓ $(NAME) created successfully!$(NC)"
-	@echo "$(YELLOW)🧟 Run with: ./$(NAME)$(NC)"
+	@echo "$(YELLOW)🧠 Run with: ./$(NAME)$(NC)"
 
 %.o: %.cpp $(HEADERS)
 	@echo "$(YELLOW)⚙️  Compiling $<...$(NC)"
