@@ -29,11 +29,12 @@ public:
     void setNickname(std::string nick);
     void setPhoneNumber(std::string phone);
     void setDarkestSecret(std::string secret);
-    std::string getFirstName() const;
-    std::string getLastName() const;
-    std::string getNickname() const;
-    std::string getPhoneNumber() const;
-    std::string getDarkestSecret() const;
+
+    std::string getFirstName();
+    std::string getLastName();
+    std::string getNickname();
+    std::string getPhoneNumber();
+    std::string getDarkestSecret();
 };
 
 #endif
