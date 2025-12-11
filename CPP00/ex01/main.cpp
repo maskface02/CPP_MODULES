@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include <iostream>
 
 std::string trim(const std::string& str) {
     size_t first = str.find_first_not_of(" \t\n\r");
@@ -25,26 +24,29 @@ int main() {
 
     PhoneBook phoneBook;
     std::string command;
-    
+    int ex = 0;
+
     std::cout << "Welcome to Your Awesome Phonebook!" << std::endl;
     std::cout << "Available commands: ADD, SEARCH, EXIT" << std::endl;
     while (true) {
-        std::cout << "\nEnter command: ";
-        if (!std::getline(std::cin, command)) {
-            std::cout << std::endl;
-            break;
-        }
-        command = trim(command);
-        if (command == "ADD")
-            phoneBook.addContact();
-        else if (command == "SEARCH")
-            phoneBook.searchContact();
-        else if (command == "EXIT") {
-            std::cout << "Goodbye! Your contacts are lost forever!" << std::endl;
-            break;
-        }
-        else if (!command.empty()) {
-            std::cout << "Invalid command. Use ADD, SEARCH, or EXIT." << std::endl;
-        }
+      if (ex)
+        return 1;
+      std::cout << "\nEnter command: ";
+      if (!std::getline(std::cin, command)) {
+          std::cout << std::endl;
+          break;
+      }
+      command = trim(command);
+      if (command == "ADD")
+          ex = phoneBook.addContact();
+      else if (command == "SEARCH")
+          ex = phoneBook.searchContact();
+      else if (command == "EXIT") {
+          std::cout << "Goodbye! Your contacts are lost forever!" << std::endl;
+          break;
+      }
+      else if (!command.empty()) {
+          std::cout << "Invalid command. Use ADD, SEARCH, or EXIT." << std::endl;
+      }
     }
 }

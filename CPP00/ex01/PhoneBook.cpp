@@ -38,34 +38,55 @@ std::string PhoneBook::checkInput(std::string input) {
   return input;
 }
 
-void PhoneBook::addContact() {
+int PhoneBook::addContact() {
     Contact newContact;
     std::string input;
 
     std::cout << "Enter first name: ";
     std::getline(std::cin, input);
+    if (std::cin.eof()) {
+        std::cout << std::endl;
+        return 1;
+    }
     newContact.setFirstName(checkInput(input));
 
     std::cout << "Enter last name: ";
     std::getline(std::cin, input);
+    if (std::cin.eof()) {
+        std::cout << std::endl;
+        return 1;
+    }
     newContact.setLastName(checkInput(input));
-    
+
     std::cout << "Enter nickname: ";
     std::getline(std::cin, input);
+    if (std::cin.eof()) {
+        std::cout << std::endl;
+        return 1;
+    }
     newContact.setNickname(checkInput(input));
-    
+
     std::cout << "Enter phone number: ";
     std::getline(std::cin, input);
+    if (std::cin.eof()) {
+        std::cout << std::endl;
+        return 1;
+    }
     newContact.setPhoneNumber(checkInput(input));
-    
+
     std::cout << "Enter darkest secret: ";
     std::getline(std::cin, input);
+    if (std::cin.eof()) {
+        std::cout << std::endl;
+        return 1;
+    }
     newContact.setDarkestSecret(checkInput(input));
 
     contacts[currentIndex] = newContact;
     currentIndex = (currentIndex + 1) % 8;
     if (contactCount < 8)
-        contactCount++;
+      contactCount++;
+    return 0;
 }
 
 void PhoneBook::displayAllContacts(){
@@ -84,7 +105,7 @@ void PhoneBook::displayAllContacts(){
         displayContactRow(i, contacts[i]);
 }
 
-int PhoneBook::ftAtoi(std::string str) {
+int PhoneBook::atoi(std::string str) {
     int res = 0;
     size_t i = 0;
     while (i < str.length() && isspace(str[i])) i++;
@@ -115,10 +136,10 @@ int PhoneBook::isNumber(std::string str) {
   return 1;
 }
 
-void PhoneBook::searchContact() {
+int PhoneBook::searchContact() {
   if (!contactCount) {
         std::cout << "Phonebook is empty!" << std::endl;
-        return;
+        return 0;
   }
   displayAllContacts();
 
@@ -126,26 +147,25 @@ void PhoneBook::searchContact() {
   std::string input;
   std::getline(std::cin, input);
   
-  if (std::cin.eof())  {
+  if (std::cin.eof()) {
       std::cout << std::endl;
-      return;
+      return 1;
   }
 
-  if (checkInput(input).empty())
-  {
+  if (checkInput(input).empty()) {
       std::cout << "Invalid input!" << std::endl;
-      return;
+      return 0;
   }
 
   if (!isNumber(input)) {
       std::cout << "Invalid input!" << std::endl;
-      return;
+      return 0;
   }
 
-  int index = ftAtoi(input);
+  int index = atoi(input);
   if (index < 0 || index >= contactCount) {
       std::cout << "Index out of range!" << std::endl;
-      return;
+      return 0;
   }
   
   std::cout << "\nContact Information:" << std::endl;
@@ -154,4 +174,5 @@ void PhoneBook::searchContact() {
   std::cout << "Nickname: " << contacts[index].getNickname() << std::endl;
   std::cout << "Phone Number: " << contacts[index].getPhoneNumber() << std::endl;
   std::cout << "Darkest Secret: " << contacts[index].getDarkestSecret() << std::endl;
+  return 0;
 }

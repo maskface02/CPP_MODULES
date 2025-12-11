@@ -6,7 +6,7 @@
 /*   By: zatais <zatais@student.1337.ma>              +:+ +:+         +:+     */
 /*                                                  +#+  +:+       +#+        */
 /*   Created: 2025/12/08 23:20:35 by zatais       +#+#+#+#+#+   +#+           */
-/*   Updated: 2025/12/08 23:20:35 by zatais            #+#    #+#             */
+/*   Updated: 2025/12/11 17:37:57 by zatais            #+#    #+#             */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,15 @@ private:
     std::string truncateString(std::string str, size_t width) const;
     void displayContactRow(int index, Contact contact);
     std::string checkInput(std::string input);
-    int ftAtoi(std::string str);
+    int atoi(std::string str);
     int isNumber(std::string str); 
 
 public:
     PhoneBook();
 
-    void addContact();
-    void searchContact();
-    void displayAllContacts();
+    int   addContact();
+    int   searchContact();
+    void  displayAllContacts();
 };
 
 #endif
