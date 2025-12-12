@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*   main.cpp                                             :::      ::::::::   */
+/*                                                      :+:      :+:    :+:   */
+/*   By: zatais <zatais@student.1337.ma>              +:+ +:+         +:+     */
+/*                                                  +#+  +:+       +#+        */
+/*   Created: 2025/12/12 17:00:35 by zatais       +#+#+#+#+#+   +#+           */
+/*   Updated: 2025/12/12 17:00:35 by zatais            #+#    #+#             */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Harl.hpp"
-#include <iostream>
 
 int main(void) {
     Harl harl;
@@ -23,7 +34,7 @@ int main(void) {
     harl.complain("CRITICAL");
     
     std::cout << "Testing another invalid level:" << std::endl;
-    harl.complain("debug");  // Case sensitive!
+    harl.complain("debug");
     
     std::cout << "Multiple complaints" << std::endl;
     harl.complain("WARNING");
