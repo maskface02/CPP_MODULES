@@ -4,7 +4,8 @@
 
 
 void SearchAndReplace(std::string &line, std::string &str1, std::string &str2) {
-
+  if (str1.empty())
+    return;
   size_t pos = line.find(str1); 
   while (pos != std::string::npos) {
     line = line.substr(0, pos) + str2 + line.substr(pos + str1.length());
