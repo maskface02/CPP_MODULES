@@ -45,12 +45,8 @@ void Harl::complain(std::string level) {
     
     for (int i = 0; i < 4; i++) {
         if (levels[i] == level) {
-            (this->*functions[i])();  // Call the function through pointer
+            (this->*functions[i])();
             return;
         }
     }
-    
-    std::cout << "[ UNKNOWN ]" << std::endl;
-    std::cout << "Invalid complaint level: " << level << std::endl;
-    std::cout << std::endl;
 }
