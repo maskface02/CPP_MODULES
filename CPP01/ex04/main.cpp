@@ -15,13 +15,12 @@
 #include <iostream>
 
 
-void SearchAndReplace(std::string &line, std::string &str1, std::string &str2) {
+void searchAndReplace(std::string &line, std::string &str1, std::string &str2) {
   if (str1.empty())
     return;
   size_t pos = line.find(str1); 
   while (pos != std::string::npos) {
     line = line.substr(0, pos) + str2 + line.substr(pos + str1.length());
-    std::cout << "testing......." + line << std::endl;
     pos += str2.length();
     pos = line.find(str1, pos);
   }
@@ -56,7 +55,7 @@ int main (int ac, char **av) {
 
   while (getline(inFile, line))
   {
-    SearchAndReplace(line, str1, str2);
+    searchAndReplace(line, str1, str2);
     outFile << line;
     if (!inFile.eof())
       outFile << std::endl;

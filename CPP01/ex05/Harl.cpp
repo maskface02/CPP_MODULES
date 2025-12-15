@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*   Harl.cpp                                             :::      ::::::::   */
+/*                                                      :+:      :+:    :+:   */
+/*   By: zatais <zatais@staudent.1337.ma>             +:+ +:+         +:+     */
+/*                                                  +#+  +:+       +#+        */
+/*   Created: 2025/12/15 11:47:44 by zatais       +#+#+#+#+#+   +#+           */
+/*   Updated: 2025/12/15 11:47:50 by zatais            #+#    #+#             */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Harl.hpp"
 
 void Harl::debug(void) {
@@ -45,7 +57,7 @@ void Harl::complain(std::string level) {
     
     for (int i = 0; i < 4; i++) {
         if (levels[i] == level) {
-            (this->*functions[i])();  // Call the function through pointer
+            (this->*functions[i])();
             return;
         }
     }

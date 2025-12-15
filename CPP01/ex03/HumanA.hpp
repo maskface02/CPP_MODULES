@@ -15,6 +15,7 @@
 
 #include "Weapon.hpp"
 #include <string>
+#include <iostream>
 
 class HumanA {
 private:
