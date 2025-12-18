@@ -23,11 +23,11 @@ std::string PhoneBook::truncateString(std::string str, size_t width) const {
 
 void PhoneBook::displayContactRow(int index, Contact contact){
 
-    std::cout << "|"<< std::left << std::setw(10) << index;
-    std::cout << "|"<< std::left << std::setw(10) << truncateString(contact.getFirstName(), 10);
-    std::cout << "|"<< std::left << std::setw(10) << truncateString(contact.getLastName(), 10);
-    std::cout << "|"<< std::left << std::setw(10) << truncateString(contact.getNickname(), 10);
-    std::cout << "|"<< std::left << std::endl;
+    std::cout << "|"<< std::setw(10) << index;
+    std::cout << "|"<< std::setw(10) << truncateString(contact.getFirstName(), 10);
+    std::cout << "|"<< std::setw(10) << truncateString(contact.getLastName(), 10);
+    std::cout << "|"<< std::setw(10) << truncateString(contact.getNickname(), 10);
+    std::cout << "|"<< std::endl;
 }
 
 std::string PhoneBook::checkInput(std::string input) {
