@@ -60,7 +60,7 @@ Fixed& Fixed::operator=(const Fixed& obj){
 Fixed Fixed::operator*(const Fixed &obj){
   Fixed res;
 
-  res.setRawBits(fixedPointVal * obj.getRawBits());
+  res.setRawBits(fixedPointVal * obj.getRawBits() >> fractionBits);
   return res;
 }
 
@@ -81,7 +81,7 @@ Fixed Fixed::operator-(const Fixed &obj){
 Fixed Fixed::operator/(const Fixed &obj){
   Fixed res;
 
-  res.setRawBits(fixedPointVal / obj.getRawBits());
+  res.setRawBits(fixedPointVal / obj.getRawBits() << fractionBits);
   return res;
 }
 
