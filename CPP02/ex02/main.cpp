@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*   main.cpp                                             :::      ::::::::   */
+/*                                                      :+:      :+:    :+:   */
+/*   By: zatais <zatais@student.1337.ma>              +:+ +:+         +:+     */
+/*                                                  +#+  +:+       +#+        */
+/*   Created: 2025/12/19 18:53:34 by zatais       +#+#+#+#+#+   +#+           */
+/*   Updated: 2025/12/19 18:53:34 by zatais            #+#    #+#             */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
 int main( void ) {
@@ -9,6 +21,6 @@ int main( void ) {
   std::cout << a++ << std::endl;
   std::cout << a << std::endl;
   std::cout << b << std::endl;
-  // std::cout << Fixed::max( a, b ) << std::endl;
+  std::cout << Fixed::max( a, b ) << std::endl;
   return 0;
 }
