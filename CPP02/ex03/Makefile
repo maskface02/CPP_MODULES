@@ -1,9 +1,9 @@
-NAME		= fixed
+NAME		= bsp
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
-SRCS		= main.cpp Fixed.cpp
+SRCS		= main.cpp Fixed.cpp bsp.cpp Point.cpp
 OBJS		= $(SRCS:.cpp=.o)
-HEADERS		= Fixed.hpp
+HEADERS		= Fixed.hpp Point.hpp
 
 GREEN		= \033[0;32m
 RED			= \033[0;31m

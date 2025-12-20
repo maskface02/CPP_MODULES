@@ -6,7 +6,7 @@
 /*   By: zatais <zatais@student.1337.ma>              +:+ +:+         +:+     */
 /*                                                  +#+  +:+       +#+        */
 /*   Created: 2025/12/17 23:14:51 by zatais       +#+#+#+#+#+   +#+           */
-/*   Updated: 2025/12/17 23:14:51 by zatais            #+#    #+#             */
+/*   Updated: 2025/12/20 16:47:19 by zatais            #+#    #+#             */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Fixed::Fixed() : fixedPointVal(0) {}
 
-Fixed::Fixed(const Fixed& obj) : fixedPointVal(obj.getRawBits()){}
+Fixed::Fixed(const Fixed& obj) : fixedPointVal(obj.getRawBits()) {}
 
 Fixed::Fixed(const int intValue) {
   fixedPointVal = intValue << fractionBits;
@@ -45,7 +45,7 @@ std::ostream& operator<<(std::ostream& out, const Fixed& fixed) {
 
 /*-------------------------------------------------------------------------------*/
 
-Fixed& Fixed::operator=(const Fixed& obj) {
+Fixed& Fixed::operator=(const Fixed& obj){
   if (this != &obj)
     fixedPointVal = obj.getRawBits();
   return *this;
