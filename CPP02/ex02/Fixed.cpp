@@ -15,7 +15,7 @@
 Fixed::Fixed() : fixedPointVal(0) {}
 
 Fixed::Fixed(const Fixed& obj){
-  *this = obj;
+  fixedPointVal = obj.fixedPointVal;
 }
 
 Fixed::Fixed(const int intValue) {
@@ -28,21 +28,17 @@ Fixed::Fixed(const float floatValue) {
 
 Fixed::~Fixed(){}
 
-float Fixed::toFloat() const {
-  return (float)fixedPointVal / (1 << fractionBits);
-}
+/*------------------------------------------------------------------------------------*/
 
-int Fixed::toInt() const {
-  return fixedPointVal >> fractionBits;
-}
+float Fixed::toFloat() const {return (float)fixedPointVal / (1 << fractionBits);}
 
-int Fixed::getRawBits() const {
-  return fixedPointVal;
-}
+int Fixed::toInt() const {return fixedPointVal >> fractionBits;}
 
-void Fixed::setRawBits(int const raw) {
-  fixedPointVal = raw;
-}
+int Fixed::getRawBits() const {return fixedPointVal;}
+
+void Fixed::setRawBits(int const raw) {fixedPointVal = raw;}
+
+/*------------------------------------------------------------------------------------*/
 
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed) {
   out << fixed.toFloat();
