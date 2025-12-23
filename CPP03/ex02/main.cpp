@@ -3,70 +3,48 @@
 /*                                                                            */
 /*   main.cpp                                             :::      ::::::::   */
 /*                                                      :+:      :+:    :+:   */
-/*   By: zatais <zatais@staudent.1337.ma>             +:+ +:+         +:+     */
+/*   By: zatais <zatais@student.1337.ma>              +:+ +:+         +:+     */
 /*                                                  +#+  +:+       +#+        */
-/*   Created: 2025/12/22 16:10:13 by zatais       +#+#+#+#+#+   +#+           */
-/*   Updated: 2025/12/22 16:10:13 by zatais            #+#    #+#             */
+/*   Created: 2025/12/23 21:45:43 by zatais       +#+#+#+#+#+   +#+           */
+/*   Updated: 2025/12/23 21:45:43 by zatais            #+#    #+#             */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rkaufman <rkaufman@student.42wolfsburg.de> +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/18 07:12:45 by rkaufman          #+#    #+#             */
-/*   Updated: 2022/05/18 20:21:39 by rkaufman         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-int	main(void)
+int main()
 {
-	ClapTrap	trapA("Hugo");
-	ScavTrap	trapB("Tom");
-	FragTrap	trapC("Paul");
+	std::cout << "Constructors: " << std::endl;
+	FragTrap robot("Robby");
+	ScavTrap guard("Guardian");
+	ClapTrap basic("Basic");
 
-	trapC.highFivesGuys();
-	trapA.attack(trapB.getName());
-	
-	trapB.guardGate();
-	trapC.attack(trapA.getName());
-	trapB.takeDamage(20);
-	trapA.attack(trapB.getName());
-	trapB.takeDamage(2);
-	trapB.attack(trapC.getName());
-	trapC.takeDamage(7);
-	trapC.attack(trapA.getName());
-	trapA.takeDamage(5);
-	trapA.beRepaired(3);
-	trapB.attack(trapA.getName());
-	trapA.takeDamage(2);
-	trapC.attack(trapB.getName());
-	trapA.attack(trapB.getName());
-	trapB.takeDamage(2);
-	trapB.attack(trapC.getName());
-	trapC.takeDamage(7);
-	trapC.attack(trapA.getName());
-	trapA.takeDamage(5);
-	trapA.beRepaired(3);
-	trapB.attack(trapA.getName());
-	trapA.takeDamage(2);
-	trapC.attack(trapB.getName());
-	trapC.beRepaired(5);
-	trapA.beRepaired(3);
-	trapA.beRepaired(3);
-	trapA.beRepaired(3);
-	trapA.beRepaired(3);
-	trapA.beRepaired(3);
-	trapA.beRepaired(3);
-	trapA.beRepaired(3);
-	return (0);
+	std::cout << "\nFragTrap: " << std::endl;
+	std::cout << "Name: " << robot.getName() << std::endl;
+	std::cout << "Hitpoints: " << robot.getHitPts() << std::endl;
+	std::cout << "Energy: " << robot.getEnergyPts() << std::endl;
+	std::cout << "Attack Damage: " << robot.getAttackDmg() << std::endl;
+
+	std::cout << "\nFragTrap actions: " << std::endl;
+	robot.attack("Enemy");
+	robot.takeDamage(30);
+	robot.beRepaired(20);
+	robot.highFivesGuys();
+
+	std::cout << "\nScavTrap Actions: " << std::endl;
+	guard.attack("Intruder");
+	guard.guardGate();
+
+	std::cout << "\nClapTrap Actions:" << std::endl;
+	basic.attack("Target");
+
+	std::cout << "\nCopy Test: " << std::endl;
+	FragTrap copy("Copy");
+	copy = robot;
+	std::cout << "Copy name: " << copy.getName() << std::endl;
+	copy.highFivesGuys();
+
+	std::cout << "\nDestructors: " << std::endl;
+	return 0;
 }

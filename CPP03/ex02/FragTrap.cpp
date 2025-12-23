@@ -23,29 +23,35 @@ FragTrap::FragTrap(const std::string &n) : ClapTrap(n) {
   hitPts = 100;
   energyPts = 100;
   attackDmg = 30;
-  std::cout << "ClapTrap named: " << name << " constructed with default values" << std::endl;
+  std::cout << "FragTrap named: " << name << " constructed with default values" << std::endl;
 }
 
-ClapTrap& ClapTrap::operator=(const ClapTrap& otherObj)
-{
-  std::cout << "ClapTrap Assignation operator called" << std::endl;
+FragTrap::FragTrap(const FragTrap& otherObj) : ClapTrap(otherObj.name) {
+  hitPts = otherObj.hitPts;
+  energyPts = otherObj.energyPts;
+  attackDmg = otherObj.attackDmg;
+  std::cout << "FragTrap named: " << name << " copied" << std::endl;
+}
+
+FragTrap& FragTrap::operator=(const FragTrap& otherObj) {
+  std::cout << "FragTrap Assignation operator called" << std::endl;
   if (this != &otherObj) {
     name = otherObj.name;
-    hitPts = otherObj.attackDmg;
+    hitPts = otherObj.hitPts;
     energyPts = otherObj.energyPts;
     attackDmg = otherObj.attackDmg;
   }
-  std::cout << "ClapTrap named: " << name << " assigned" << std::endl;
+  std::cout << "FragTrap named: " << name << " assigned" << std::endl;
   return *this;
 }
 
-ClapTrap::~ClapTrap(){std::cout << "scavtrap named: "<< name << " deleted" << std::endl;}
+FragTrap::~FragTrap() {std::cout << "FragTrap named: " << name << " deleted" << std::endl;}
 
 /***********************************************************************************************/
 
-void FragTrap::highFivesGuys(){
+void FragTrap::highFivesGuys() {
   if (hitPts > 0)
-    std::cout << "ClapTrap named: " << name << " do high-Fives" << std::endl;
+    std::cout << "FragTrap named: " << name << " requests high-fives!" << std::endl;
   else
-    std::cout << "ClapTrap named: " << name << " has been destroyed!" << std::endl;
+    std::cout << "FragTrap named: " << name << " has been destroyed!" << std::endl;
 }

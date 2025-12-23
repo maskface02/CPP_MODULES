@@ -37,7 +37,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& otherObj) {
   std::cout << "ScavTrap Assignation operator called" << std::endl;
   if (this != &otherObj) {
     name = otherObj.name;
-    hitPts = otherObj.attackDmg;
+    hitPts = otherObj.hitPts;
     energyPts = otherObj.energyPts;
     attackDmg = otherObj.attackDmg;
   }
@@ -60,9 +60,9 @@ void ScavTrap::attack(const std::string& target) {
 
 void ScavTrap::guardGate(){
   if (hitPts > 0)
-    std::cout << "ScavTrap named: " << name << "in Gatekeeper made"<< std::endl;
+    std::cout << "ScavTrap named: " << name << " in Gatekeeper made"<< std::endl;
   else
-    std::cout << "ScavTrap named: " << name << " has been destroyed!";
+    std::cout << "ScavTrap named: " << name << " has been destroyed!" << std::endl;
 }
 
 

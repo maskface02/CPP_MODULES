@@ -51,7 +51,11 @@ void ClapTrap::attack(const std::string& target) {
 
 void ClapTrap::takeDamage(unsigned int amount) {
   if (!hitPts)
+  {
     std::cout << "ClapTrap named: " << name << "already dead!" << std::endl;
+    return;
+  } 
+
   if (hitPts > amount)
     hitPts -= amount;
   else

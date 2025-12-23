@@ -6,7 +6,7 @@
 /*   By: zatais <zatais@staudent.1337.ma>             +:+ +:+         +:+     */
 /*                                                  +#+  +:+       +#+        */
 /*   Created: 2025/12/23 14:04:44 by zatais       +#+#+#+#+#+   +#+           */
-/*   Updated: 2025/12/23 14:04:44 by zatais            #+#    #+#             */
+/*   Updated: 2025/12/23 21:43:33 by zatais            #+#    #+#             */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class FragTrap : public ClapTrap {
     FragTrap(const std::string &n);
     FragTrap(const FragTrap &otherObj);
     FragTrap& operator=(const FragTrap& otherObj);
+    ~FragTrap();
 
     void highFivesGuys(void);
 };

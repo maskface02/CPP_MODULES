@@ -59,7 +59,7 @@ void ScavTrap::attack(const std::string& target) {
 }
 
 void ScavTrap::guardGate(){
-  std::cout << "ScavTrap named: " << name << "in Gatekeeper made"<< std::endl;
+  std::cout << "ScavTrap named: " << name << " in Gatekeeper made"<< std::endl;
 }
 
 
