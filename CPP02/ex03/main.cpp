@@ -20,13 +20,13 @@ int main()
 
     Point inside(2, 2);
     Point outside(10, 10);
-    Point edge(10, 0);
     Point vertex(5, 0);
+    Point edge(10, 0);
 
     std::cout << "Inside  : " << bsp(a, b, c, inside) << std::endl;
     std::cout << "Outside : " << bsp(a, b, c, outside) << std::endl;
-    std::cout << "On edge : " << bsp(a, b, c, edge) << std::endl;
     std::cout << "On vertex : " << bsp(a, b, c, vertex) << std::endl;
+    std::cout << "On edge : " << bsp(a, b, c, edge) << std::endl;
 
     return 0;
 }

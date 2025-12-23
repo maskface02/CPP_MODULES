@@ -6,15 +6,17 @@
 /*   By: zatais <zatais@student.1337.ma>              +:+ +:+         +:+     */
 /*                                                  +#+  +:+       +#+        */
 /*   Created: 2025/12/21 21:28:18 by zatais       +#+#+#+#+#+   +#+           */
-/*   Updated: 2025/12/22 02:05:22 by zatais            #+#    #+#             */
+/*   Updated: 2025/12/23 13:20:06 by zatais            #+#    #+#             */
 /*                                                                            */
 /* ************************************************************************** */
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 
-#include <iostream>
 #include <string>
+#include <iostream>
 
 class ClapTrap{
-  private:
+  protected:
     std::string name;
     unsigned int hitPts;
     unsigned int energyPts;
@@ -30,4 +32,11 @@ class ClapTrap{
     void beRepaired(unsigned int amount);
     void takeDamage(unsigned int amount);
     void attack(const std::string& target);
+
+    std::string  getName() const;
+    unsigned int getHitPts() const;
+    unsigned int getEnergyPts() const;
+    unsigned int getAttackDmg() const;
 };
+
+#endif

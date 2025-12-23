@@ -45,7 +45,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& otherObj) {
   return *this;
 }
 
-ScavTrap::~ScavTrap(){std::cout << "scavtrap named: "<< name << " deleted" << std::endl;}
+ScavTrap::~ScavTrap(){std::cout << "ScavTrap named: "<< name << " deleted" << std::endl;}
 
 /**********************************************************************************************************************************************************/
 
@@ -59,10 +59,7 @@ void ScavTrap::attack(const std::string& target) {
 }
 
 void ScavTrap::guardGate(){
-  if (hitPts > 0)
-    std::cout << "ScavTrap named: " << name << "in Gatekeeper made"<< std::endl;
-  else
-    std::cout << "ScavTrap named: " << name << " has been destroyed!";
+  std::cout << "ScavTrap named: " << name << "in Gatekeeper made"<< std::endl;
 }
 
 

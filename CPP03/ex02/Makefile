@@ -1,9 +1,9 @@
 NAME		= ScavTrap
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
-SRCS		= main.cpp ClapTrap.cpp ScavTrap.cpp
+SRCS		= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 OBJS		= $(SRCS:.cpp=.o)
-HEADERS		= ClapTrap.hpp ScavTrap.hpp
+HEADERS		= ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
 
 GREEN		= \033[0;32m
 RED			= \033[0;31m

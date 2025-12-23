@@ -9,7 +9,6 @@
 /*   Updated: 2025/12/22 02:12:37 by zatais            #+#    #+#             */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap() : name("Default"), hitPts(10), energyPts(10), attackDmg(0) {
@@ -20,17 +19,17 @@ ClapTrap::ClapTrap(const std::string& n) : name(n), hitPts(10), energyPts(10), a
   std::cout << "ClapTrap named: " << name << " constructed" << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap& otherObj) : name(otherObj.name), hitPts(otherObj.hitPts), energyPts(otherObj.energyPts), attackDmg(otherObj.attackDmg) {
+ClapTrap::ClapTrap(const ClapTrap& otherObj) : name(otherObj.getName()), hitPts(otherObj.getHitPts()), energyPts(otherObj.getEnergyPts()), attackDmg(otherObj.getAttackDmg()) {
   std::cout << "ClapTrap named: " << name << " copied" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& otherObj) {
   std::cout << "ClapTrap Assignation operator called" << std::endl;
   if (this != &otherObj) {
-    name = otherObj.name;
-    hitPts = otherObj.hitPts;
-    energyPts = otherObj.energyPts;
-    attackDmg = otherObj.attackDmg;
+    name = otherObj.getName();
+    hitPts = otherObj.getHitPts();
+    energyPts = otherObj.getEnergyPts();
+    attackDmg = otherObj.getAttackDmg();
   }
   std::cout << "ClapTrap named: " << name << " assigned" << std::endl;
   return *this;
@@ -38,7 +37,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& otherObj) {
 
 ClapTrap::~ClapTrap(){std::cout << "ClapTrap named: " << name << " deleted" << std::endl;}
 
-/* ************************************************************************** */
+/*****************************************************************************************************************************************/
 
 void ClapTrap::attack(const std::string& target) {
   if (energyPts > 0 && hitPts > 0) {
@@ -69,4 +68,10 @@ void ClapTrap::beRepaired(unsigned int amount) {
       std::cout << "ClapTrap named: " << name << " has insufficient energy or hit points to repair" << std::endl;
 }
 
+/***************************************************************************************************************************************/
+
+unsigned int ClapTrap::getAttackDmg() const {return attackDmg;}
+unsigned int ClapTrap::getEnergyPts() const {return energyPts;}
+unsigned int ClapTrap::getHitPts() const {return hitPts;}
+std::string  ClapTrap::getName() const {return name;}
 
