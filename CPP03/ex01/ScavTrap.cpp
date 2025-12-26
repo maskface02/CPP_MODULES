@@ -3,7 +3,7 @@
 /*                                                                            */
 /*   ScavTrap.cpp                                         :::      ::::::::   */
 /*                                                      :+:      :+:    :+:   */
-/*   By: zatais <zatais@staudent.1337.ma>             +:+ +:+         +:+     */
+/*   By: zatais <zatais@student.1337.ma>             +:+ +:+         +:+      */
 /*                                                  +#+  +:+       +#+        */
 /*   Created: 2025/12/22 15:50:21 by zatais       +#+#+#+#+#+   +#+           */
 /*   Updated: 2025/12/22 15:50:21 by zatais            #+#    #+#             */
@@ -12,7 +12,8 @@
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap("Default") {
+ScavTrap::ScavTrap() {
+  name = "Default";
   hitPts = 100;
   energyPts = 50;
   attackDmg = 20;
@@ -23,7 +24,7 @@ ScavTrap::ScavTrap(const std::string &n) : ClapTrap(n) {
   hitPts = 100;
   energyPts = 50;
   attackDmg = 20;
-  std::cout << "ScavTrap named: " << name << " constructed with default values" << std::endl;
+  std::cout << "ScavTrap named: " << name << " constructed" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& otherObj) : ClapTrap(otherObj.name) {

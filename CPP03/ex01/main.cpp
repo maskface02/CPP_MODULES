@@ -19,7 +19,7 @@ int	main()
 
 	Daniel = temp;
 
-	std::cout << "\n---------- ScavTrap Daniel ----------" << std::endl;
+	std::cout << "\nScavTrap Daniel: " << std::endl;
 	std::cout << "Hitpoints: " << Daniel.getHitPts() << " ";
 	std::cout << "Energy: " << Daniel.getEnergyPts() << " ";
 	std::cout << "Attack Damage: " << Daniel.getAttackDmg() << " ";
@@ -37,7 +37,7 @@ int	main()
 	Daniel.attack("Lions");
 	Daniel.attack("Kings");
 
-	std::cout << "\nFights are over. Guarding time...\n" << std::endl;
+	std::cout << "\nIts Guarding time...\n" << std::endl;
 	Daniel.guardGate();
-	std::cout << "\nGuareded too much...Enough!\n" << std::endl;
+	std::cout << "\nDestructors: \n" << std::endl;
 }

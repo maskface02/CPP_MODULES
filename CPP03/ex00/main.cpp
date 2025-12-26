@@ -13,7 +13,7 @@
 #include "ClapTrap.hpp"
 
 int main() {
-    ClapTrap clap1("Clappy");
+    ClapTrap clap1("Clap");
     ClapTrap clap2 = clap1;
     ClapTrap clap3;
     clap3 = clap1;

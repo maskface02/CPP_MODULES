@@ -12,7 +12,8 @@
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap("Default") {
+ScavTrap::ScavTrap() {
+  name = "Default";
   hitPts = 100;
   energyPts = 50;
   attackDmg = 20;

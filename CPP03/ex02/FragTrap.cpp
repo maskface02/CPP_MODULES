@@ -12,7 +12,8 @@
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() : ClapTrap("Default") {
+FragTrap::FragTrap(){
+  name = "Default";
   hitPts = 100;
   energyPts = 100;
   attackDmg = 30;
@@ -23,7 +24,7 @@ FragTrap::FragTrap(const std::string &n) : ClapTrap(n) {
   hitPts = 100;
   energyPts = 100;
   attackDmg = 30;
-  std::cout << "FragTrap named: " << name << " constructed with default values" << std::endl;
+  std::cout << "FragTrap named: " << name << " constructed" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& otherObj) : ClapTrap(otherObj.name) {
