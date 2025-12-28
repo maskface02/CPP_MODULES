@@ -9,6 +9,8 @@
 /*   Updated: 2025/12/27 19:36:03 by zatais            #+#    #+#             */
 /*                                                                            */
 /* ************************************************************************** */
+#ifndef CAT_HPP
+#define CAT_HPP
 
 #include "Animal.hpp"
 
@@ -17,9 +19,11 @@ class Cat : public Animal{
     Cat();
     Cat(const Cat& otherObj);
     Cat& operator=(const Cat& otherObj);
-    ~Cat();
+    virtual ~Cat();
     
-    std::string getType();
-    void        makeSound() override;
+    std::string getType() const;
+    void        makeSound() const;
 
 };
+
+#endif // !CAT_HPP

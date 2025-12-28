@@ -26,4 +26,5 @@ Animal& Animal::operator=(const Animal& otherObj) {
 Animal::~Animal(){std::cout << "Animal destructor called" << std::endl;}
 
 std::string Animal::getType() const {return type;}
+
 void Animal::makeSound() const {std::cout << "Normal animal sound !!! " << std::endl;}

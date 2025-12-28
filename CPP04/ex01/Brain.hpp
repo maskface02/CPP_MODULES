@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zatais <zatais@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/28 17:44:12 by zatais            #+#    #+#             */
-/*   Updated: 2025/12/28 17:44:12 by zatais           ###   ########.fr       */
+/*   Created: 2025/12/28 18:48:13 by zatais            #+#    #+#             */
+/*   Updated: 2025/12/28 18:48:13 by zatais           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
-#include "Animal.hpp"
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
+class Brain {
+  private:
+    std::string ideas[100];
 
-class Dog : public Animal{
   public:
-    Dog();
-    Dog(const Dog& otherObj);
-    Dog& operator=(const Dog& otherObj);
-    virtual ~Dog();
-
-    std::string getType() const;
-    void        makeSound() const;
+    Brain();
+    Brain(const Brain& otherObj);
+    Brain& operator=(const Brain& otherObj);
+    ~Brain();
 };
 
-#endif // DEBUG
+#endif

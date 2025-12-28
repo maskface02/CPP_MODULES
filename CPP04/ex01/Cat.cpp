@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 
 #include "Cat.hpp"
-#include "Animal.hpp"
 
 Cat::Cat() {
+  brain = new Brain();
   type = "Cat";
   std::cout << type <<" Default Constructor Called" << std::endl;
 }
@@ -30,7 +30,10 @@ Cat& Cat::operator=(const Cat& otherObj){
   return *this;
 }
 
-Cat::~Cat(){std::cout << type << " Desctructor called" << std::endl;}
+Cat::~Cat(){ 
+  std::cout << type << " Cat Desctructor called" << std::endl;
+  delete brain;
+}
 
 void Cat::makeSound() const {std::cout << "Meow Meow ng!!" << std::endl;}
 
