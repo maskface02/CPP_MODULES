@@ -20,7 +20,7 @@ class Dog : public Animal{
     Dog();
     Dog(const Dog& otherObj);
     Dog& operator=(const Dog& otherObj);
-    virtual ~Dog();
+    ~Dog();
 
     std::string getType() const;
     void        makeSound() const;

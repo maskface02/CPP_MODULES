@@ -19,11 +19,11 @@ class Cat : public Animal{
     Cat();
     Cat(const Cat& otherObj);
     Cat& operator=(const Cat& otherObj);
-    virtual ~Cat();
+    ~Cat();
     
     std::string getType() const;
     void        makeSound() const;
 
 };
 
-#endif // !CAT_HPP
+#endif

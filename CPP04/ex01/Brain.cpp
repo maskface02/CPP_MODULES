@@ -14,12 +14,18 @@
 
 Brain::Brain(){std::cout << "Brain Default constructor called" << std::endl;}
 
-Brain::Brain(const Brain& otherObj) : ideas(otherObj.ideas) {std::cout << "Brain Copy constructor called" << std::endl;}
+Brain::Brain(const Brain& otherObj) {
+  std::cout << "Brain Copy constructor called" << std::endl;
+  for (int i = 0; i < 100; i++)
+    ideas[i] = otherObj.ideas[i];
+}
 
-Brain& Brain::operator=(const Brain& otherObj){
+Brain& Brain::operator=(const Brain& otherObj) {
   std::cout << "Brain Assignation operator called" << std::endl;
-  if (this != &otherObj)
-    ideas = otherObj.ideas;
+  if (this != &otherObj) {
+    for (int i = 0; i < 100; i++)
+      ideas[i] = otherObj.ideas[i];
+  }
   return *this;
 }
 

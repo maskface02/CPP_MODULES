@@ -14,23 +14,31 @@
 #include "Animal.hpp"
 
 Dog::Dog() {
+  brain = new Brain();
   type = "Dog";
   std::cout << type <<" Default constructor Called" << std::endl;
 }
 
-Dog::Dog(const Dog& otherObj) : Animal() {
+Dog::Dog(const Dog& otherObj) : Animal(otherObj) {
+  brain = new Brain(*otherObj.brain);
   type = otherObj.type;
   std::cout << type << " Copy constructor called" << std::endl;
 }
 
 Dog& Dog::operator=(const Dog& otherObj){
   std::cout << "Dog Assignation operator called" << std::endl;
-  if (this != &otherObj)
+  if (this != &otherObj) {
     type = otherObj.type;
+    delete brain;
+    brain = new Brain(*otherObj.brain);
+  }
   return *this;
 }
 
-Dog::~Dog(){std::cout << type << " desctructor called" << std::endl;}
+Dog::~Dog(){
+  std::cout << type << " desctructor called" << std::endl;
+  delete brain;
+}
 
 void Dog::makeSound() const {std::cout << "Bark Bark ng!!" << std::endl;}
 
