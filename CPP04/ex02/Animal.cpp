@@ -18,8 +18,7 @@ Animal::Animal(const Animal& otherObj) : type(otherObj.type) {std::cout << "Anim
 
 Animal& Animal::operator=(const Animal& otherObj) {
   std::cout << "Animal Assignation operator called" << std::endl;
-  if (this != &otherObj)
-    type = otherObj.type;
+  (void)otherObj;
   return *this;
 }
 
