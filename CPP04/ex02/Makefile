@@ -1,4 +1,4 @@
-NAME		= Brain
+NAME		= Abstract
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 SRCS		= main.cpp  WrongCat.cpp WrongAnimal.cpp Cat.cpp Dog.cpp Animal.cpp Brain.cpp

@@ -27,7 +27,7 @@ ScavTrap::ScavTrap(const std::string &n) : ClapTrap(n) {
   std::cout << "ScavTrap named: " << name << " constructed" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& otherObj) : ClapTrap(otherObj.name) {
+ScavTrap::ScavTrap(const ScavTrap& otherObj) : ClapTrap(otherObj) {
   hitPts = otherObj.hitPts;
   energyPts = otherObj.energyPts;
   attackDmg = otherObj.attackDmg;
@@ -61,7 +61,7 @@ void ScavTrap::attack(const std::string& target) {
 
 void ScavTrap::guardGate(){
   if (hitPts > 0)
-    std::cout << "ScavTrap named: " << name << " in Gatekeeper made"<< std::endl;
+    std::cout << "ScavTrap named: " << name << " in Gatekeeper mode"<< std::endl;
   else
     std::cout << "ScavTrap named: " << name << " has been destroyed!" << std::endl;
 }
