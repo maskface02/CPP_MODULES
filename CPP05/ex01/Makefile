@@ -3,8 +3,7 @@ CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 SRCS = main.cpp Bureaucrat.cpp Form.cpp
 OBJS		= $(SRCS:.cpp=.o)
-HEADERS		=  Dog.hpp Cat.hpp Animal.hpp Brain.hpp WrongAnimal.hpp WrongCat.hpp
-
+HEADERS		= Bureaucrat.hpp Form.hpp 
 GREEN		= \033[0;32m
 RED			= \033[0;31m
 YELLOW		= \033[0;33m

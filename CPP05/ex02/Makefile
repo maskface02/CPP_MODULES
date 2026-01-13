@@ -1,10 +1,9 @@
 NAME = Form
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
-SRCS = main.cpp Bureaucrat.cpp Form.cpp
+SRCS = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp  
 OBJS		= $(SRCS:.cpp=.o)
-HEADERS		=  Dog.hpp Cat.hpp Animal.hpp Brain.hpp WrongAnimal.hpp WrongCat.hpp
-
+HEADERS		= AForm.hpp PresidentialPardonForm.hpp ShrubberyCreationForm.hpp Bureaucrat.hpp  RobotomyRequestForm.hpp
 GREEN		= \033[0;32m
 RED			= \033[0;31m
 YELLOW		= \033[0;33m

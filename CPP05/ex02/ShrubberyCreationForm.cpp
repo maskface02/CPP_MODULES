@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
-#include "AForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm(): AForm("ShrubberyCreationForm", 145, 137), target("default") {}
 
@@ -26,4 +25,36 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
     target = otherObj.target;
   }
   return *this;
+}
+
+ShrubberyCreationForm::~ShrubberyCreationForm(){}
+
+void ShrubberyCreationForm::executeFormAction() const {
+  std::string filename = target + "_shrubbery";
+  std::ofstream outfile(filename.c_str());
+  
+  if (!outfile.is_open())
+  {
+    std::cout << "Error: Could not create file " << filename << std::endl;
+    return;
+  }
+
+  outfile << "       ###" << std::endl;
+  outfile << "      #o###" << std::endl;
+  outfile << "    #####o###" << std::endl;
+  outfile << "   #o#\\#|#/###" << std::endl;
+  outfile << "    ###\\|/#o#" << std::endl;
+  outfile << "     # }|{  #" << std::endl;
+  outfile << "       }|{" << std::endl;
+  outfile << std::endl;
+  outfile << "      @@@@" << std::endl;
+  outfile << "     @@@@@@" << std::endl;
+  outfile << "    @@@@@@@@" << std::endl;
+  outfile << "   @@@@@@@@@@@" << std::endl;
+  outfile << "  @@@@@@@@@@@@@" << std::endl;
+  outfile << "       ||" << std::endl;
+  outfile << "       ||" << std::endl;
+
+  outfile.close();
+  std::cout << filename <<" has been Created" << std::endl;
 }

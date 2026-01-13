@@ -10,7 +10,7 @@ public:
 };
 
 void func() {
-    Test t;  // object with throwing destructor
+    Test t;
     throw std::runtime_error("Exception from function");
 }
 

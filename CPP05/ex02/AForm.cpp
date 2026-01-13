@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   AForm.cpp                                             :::      ::::::::   */
+/*   AForm.cpp                                            :::      ::::::::   */
 /*                                                      :+:      :+:    :+:   */
 /*   By: zatais <zatais@student.1337.ma>              +:+ +:+         +:+     */
 /*                                                  +#+  +:+       +#+        */
 /*   Created: 2026/01/09 16:17:44 by zatais       +#+#+#+#+#+   +#+           */
-/*   Updated: 2026/01/09 16:48:58 by zatais            #+#    #+#             */
+/*   Updated: 2026/01/12 17:24:20 by zatais            #+#    #+#             */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,27 @@ AForm::~AForm() {}
 
 /***************************************************************************************************/
 
-const char* AForm::GradeTooHighException::what() const throw() {return "Grade is too high!";};
+const char* AForm::GradeTooHighException::what() const throw() {return "Grade is too high!";}
 
-const char* AForm::GradeTooLowException::what() const throw() {return "Grade is too low!";};
+const char* AForm::GradeTooLowException::what() const throw() {return "Grade is too low!";}
 
 /***************************************************************************************************/
 
-void	AForm::beSigned(Bureaucrat &bureaucrat)
-{
+void	AForm::beSigned(const Bureaucrat& bureaucrat) {
 	if (bureaucrat.getGrade() > reqSignGrade)
 		throw (AForm::GradeTooLowException());
 	else
 		this->isSigned = true;
+}
+
+void AForm::execute(const Bureaucrat& executor) const {
+  if (!isSigned)
+  {
+    std::cout << name <<" form not signed" << std::endl;
+  }
+  if (executor.getGrade() > reqGradeToExec)
+    throw GradeTooLowException();
+  executeFormAction();
 }
 
 std::ostream	&operator<<(std::ostream &out, AForm const &form) {
