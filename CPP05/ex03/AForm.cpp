@@ -43,13 +43,14 @@ void	AForm::beSigned(const Bureaucrat& bureaucrat) {
 	if (bureaucrat.getGrade() > reqSignGrade)
 		throw (AForm::GradeTooLowException());
 	else
-		this->isSigned = true;
+		isSigned = true;
 }
 
 void AForm::execute(const Bureaucrat& executor) const {
   if (!isSigned)
   {
     std::cout << name <<" form not signed" << std::endl;
+    return;
   }
   if (executor.getGrade() > reqGradeToExec)
     throw GradeTooLowException();

@@ -20,9 +20,9 @@
 
 class Intern {
   private:
-    AForm* makeRobotForm(std::t);
-    AForm* makeShrubberyForm(std::t);
-    AForm* makePresidentialPardonForm(std::t);
+    AForm* makeRobotForm(std::string t);
+    AForm* makeShrubberyForm(std::string t);
+    AForm* makePresidentialPardonForm(std::string t);
 
   public:
     Intern();

@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Intern.cpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: zatais <zatais@student.1337.ma>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/14 11:51:10 by zatais            #+#    #+#             */
-/*   Updated: 2026/01/14 11:51:10 by zatais           ###   ########.fr       */
+/*                                                                            */
+/*   Intern.cpp                                           :::      ::::::::   */
+/*                                                      :+:      :+:    :+:   */
+/*   By: zatais <zatais@student.1337.ma>              +:+ +:+         +:+     */
+/*                                                  +#+  +:+       +#+        */
+/*   Created: 2026/01/14 15:56:16 by zatais       +#+#+#+#+#+   +#+           */
+/*   Updated: 2026/01/14 15:56:16 by zatais            #+#    #+#             */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 #include "Intern.hpp"
 
 Intern::Intern() {}
 
-Intern::Intern(const Intern& otherObj) {*this = otherObj;}
+Intern::Intern(const Intern& otherObj) {(void)otherObj;}
 
 Intern& Intern::operator=(const Intern& otherObj) {
-  if (this != &otherObj)
-    *this = otherObj;
+  (void)otherObj;
   return *this;
 }
 
@@ -30,18 +31,25 @@ AForm* Intern::makeShrubberyForm(std::string t) {return new ShrubberyCreationFor
 AForm* Intern::makeRobotForm(std::string t) {return new RobotomyRequestForm(t);}
 
 AForm* Intern::makeForm(std::string formName, std::string targetForm) {
-	AForm* (*forms[])(const std::string target) = {&makePresidentialPardonForm, &makeRobotForm, &makeShrubberyForm};
-	std::string forms[] = {"presidential pardon request", "robotomy request", "shrubbery request"};
+	AForm* (Intern::*formCreators[])(std::string) = {
+		&Intern::makePresidentialPardonForm, 
+		&Intern::makeRobotForm, 
+		&Intern::makeShrubberyForm
+	};
+	std::string formNames[] = {
+		"presidential pardon", 
+		"robotomy request", 
+		"shrubbery creation"
+	};
 
 	for (int i = 0; i < 3; i++)
 	{
-		if (formName == forms[i])
+		if (formName == formNames[i])
 		{
 			std::cout << "Intern creates " << formName << std::endl;
-			return (forms[i](targetForm));
+			return (this->*formCreators[i])(targetForm);
 		}
 	}
-    std::cout << "Intern cannot create form: " << formName << std::endl;
-    return NULL;
+	std::cout << "Intern cannot create form: " << formName << std::endl;
+	return NULL;
 }
-

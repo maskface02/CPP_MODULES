@@ -20,7 +20,7 @@ class PresidentialPardonForm : public AForm {
     std::string target;
 
   protected:
-    void executeAction() const;
+    void executeFormAction() const;
 
   public:
     PresidentialPardonForm();
