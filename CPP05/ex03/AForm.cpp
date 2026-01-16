@@ -16,7 +16,7 @@ AForm::AForm() : name("Default"), isSigned(false), reqSignGrade(150) ,reqGradeTo
 
 AForm::AForm(const AForm& otherObj): name(otherObj.name), isSigned(otherObj.isSigned), reqSignGrade(otherObj.reqSignGrade), reqGradeToExec(otherObj.reqGradeToExec) {}
 
-AForm::AForm(const std::string n, const int rsg, const int rgte): name(n),  isSigned(false), reqSignGrade(rsg) , reqGradeToExec(rgte) {
+AForm::AForm(const std::string n, int rsg, int rgte): name(n),  isSigned(false), reqSignGrade(rsg) , reqGradeToExec(rgte) {
   if (reqSignGrade < 1 || reqGradeToExec < 1)
     throw GradeTooHighException();
   if (reqSignGrade > 150 || reqGradeToExec > 150)
@@ -42,8 +42,7 @@ const char* AForm::GradeTooLowException::what() const throw() {return "Grade is 
 void	AForm::beSigned(const Bureaucrat& bureaucrat) {
 	if (bureaucrat.getGrade() > reqSignGrade)
 		throw (AForm::GradeTooLowException());
-	else
-		isSigned = true;
+  isSigned = true;
 }
 
 void AForm::execute(const Bureaucrat& executor) const {

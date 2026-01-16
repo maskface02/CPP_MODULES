@@ -43,8 +43,7 @@ void	Form::beSigned(Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > reqSignGrade)
 		throw (Form::GradeTooLowException());
-	else
-		isSigned = true;
+	isSigned = true;
 }
 
 std::ostream	&operator<<(std::ostream &out, Form const &form) {

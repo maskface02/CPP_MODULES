@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
-#include <cstdlib>
-#include <ctime>
 
 RobotomyRequestForm::RobotomyRequestForm(): AForm("RobotomyRequestForm", 72, 45), target("default") {}
 
@@ -22,10 +20,7 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& otherObj): A
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& otherObj) {
   if (this != &otherObj)
-  {
-    AForm::operator=(otherObj);
     target = otherObj.target;
-  }
   return *this;
 }
 
@@ -37,7 +32,7 @@ void RobotomyRequestForm::executeFormAction() const
   
 	int	success;
 
-	srand(time(NULL));
+	srand(time(0));
 	success = rand() % 2;
 	if (success)
 		std::cout << target << " has been robotomized successfully" << std::endl;

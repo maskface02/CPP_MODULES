@@ -1,4 +1,4 @@
-NAME = Form
+NAME = Intern
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 SRCS = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp  Intern.cpp
@@ -25,7 +25,7 @@ $(NAME): $(OBJS)
 
 clean:
 	@echo "$(YELLOW)🧹 Removing object files...$(NC)"
-	@rm -f $(OBJS)
+	@rm -f $(OBJS) *_shrubbery
 	@echo "$(GREEN)✓ Clean complete!$(NC)"
 
 fclean: clean

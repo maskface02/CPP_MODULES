@@ -24,10 +24,10 @@ class ShrubberyCreationForm : public AForm {
   public:
     ShrubberyCreationForm();
     ~ShrubberyCreationForm();
-    ShrubberyCreationForm(const std::string t);
+    ShrubberyCreationForm(std::string t);
     ShrubberyCreationForm(const ShrubberyCreationForm& otherObj);
     ShrubberyCreationForm& operator=(const ShrubberyCreationForm& otherObj);
 
-};
+}
 
 #endif

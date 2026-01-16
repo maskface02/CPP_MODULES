@@ -11,30 +11,27 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
 int main(void)
 {
-	/* Create the 3 forms and some Bureaucrats */
 
 	ShrubberyCreationForm shrubbery("Home");
-	RobotomyRequestForm robotomy("Morty");
-	Bureaucrat mike("Mike", 150);
-	Bureaucrat jon("Jon", 120);
-	Bureaucrat steve("Steve", 3);
+	RobotomyRequestForm robotomy("test");
+	Bureaucrat tester1("tester1", 150);
+	Bureaucrat tester2("tester2", 120);
+	Bureaucrat tester3("tester3", 3);
 	
-	/* Try to execute forms without being signed */
 	{
 		try
 		{
-			std::cout << mike << std::endl;
+			std::cout << tester1 << std::endl;
 			std::cout << shrubbery << std::endl;
 			std::cout << robotomy << std::endl;
-			mike.executeForm(shrubbery);
-			mike.executeForm(robotomy);
+			tester1.executeForm(shrubbery);
+			tester1.executeForm(robotomy);
 		}
 		catch (std::exception &e)
 		{
@@ -42,18 +39,17 @@ int main(void)
 		}
 	}
 
-	std::cout << "\n --------------------- \n\n";
+	std::cout << "--------------------- \n";
 	
-	/* Sign form and try to execute without enough grade */
 	{
 		try
 		{
-			std::cout << mike << std::endl;
-			std::cout << jon << std::endl;
+			std::cout << tester1 << std::endl;
+			std::cout << tester2 << std::endl;
 			std::cout << shrubbery << std::endl;
 			std::cout << robotomy << std::endl;
-			shrubbery.beSigned(jon);
-			mike.executeForm(shrubbery);
+			shrubbery.beSigned(tester2);
+			tester1.executeForm(shrubbery);
 		}
 		catch (std::exception &e)
 		{
@@ -61,30 +57,24 @@ int main(void)
 		}
 	}
 
-	std::cout << "\n --------------------- \n\n";
+	std::cout << "---------------------\n";
 	
-	/* Sign forms and execute them */
 	{
 		try
 		{
-			robotomy.beSigned(steve);
+			robotomy.beSigned(tester3);
 			std::cout << shrubbery << std::endl;
 			std::cout << robotomy << std::endl;
 			
-			std::cout << "\n --------------------- \n\n";
-			steve.executeForm(shrubbery);
-			std::cout << "\n --------------------- \n\n";
-			steve.executeForm(robotomy);
-			std::cout << "\n --------------------- \n\n";
+			std::cout << "--------------------- \n";
+			tester3.executeForm(shrubbery);
+			std::cout << "--------------------- \n";
+			tester3.executeForm(robotomy);
+			std::cout << "--------------------- \n";
 		}
 		catch (std::exception &e)
 		{
 			std::cout << e.what() << std::endl;
 		}
 	}
-	
-	std::cout << "\n --------------------- \n\n";
-
-
-	return (0);
 }

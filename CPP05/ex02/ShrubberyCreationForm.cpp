@@ -20,10 +20,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& otherO
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& otherObj){
   if (this != &otherObj)
-  {
-    AForm::operator=(otherObj);
     target = otherObj.target;
-  }
   return *this;
 }
 
@@ -55,6 +52,5 @@ void ShrubberyCreationForm::executeFormAction() const {
   outfile << "       ||" << std::endl;
   outfile << "       ||" << std::endl;
 
-  outfile.close();
   std::cout << filename <<" has been Created" << std::endl;
 }

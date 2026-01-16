@@ -25,7 +25,7 @@ $(NAME): $(OBJS)
 
 clean:
 	@echo "$(YELLOW)🧹 Removing object files...$(NC)"
-	@rm -f $(OBJS)
+	@rm -f $(OBJS) *_shrubbery
 	@echo "$(GREEN)✓ Clean complete!$(NC)"
 
 fclean: clean

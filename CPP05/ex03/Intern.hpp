@@ -11,12 +11,10 @@
 /* ************************************************************************** */
 
 #include <string>
-
 #include "AForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
-
 
 class Intern {
   private:

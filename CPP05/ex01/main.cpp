@@ -32,11 +32,11 @@ int main(void)
 	{
 		try
 		{
-			Bureaucrat mike("Mike", 15);
+			Bureaucrat test("test", 11);
 			Form form("b55", 20, 45);
-			std::cout << mike << std::endl;
+			std::cout << test << std::endl;
 			std::cout << form << std::endl;
-			mike.signForm(form);
+			test.signForm(form);
 			std::cout << form << std::endl;
 		}
 		catch (std::exception &e)
@@ -50,12 +50,12 @@ int main(void)
 	{
 		try
 		{
-			Bureaucrat jon("Jon", 35);
-			Form form2("2jz", 20, 45);
-			std::cout << jon << std::endl;
-			std::cout << form2 << std::endl;
-			jon.signForm(form2);
-			std::cout << form2 << std::endl;
+			Bureaucrat test("test", 77);
+			Form form("2jz", 20, 77);
+			std::cout << test << std::endl;
+			std::cout << form << std::endl;
+			test.signForm(form);
+			std::cout << form << std::endl;
 		}
 		catch (std::exception &e)
 		{

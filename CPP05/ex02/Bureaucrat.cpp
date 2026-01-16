@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "AForm.hpp"
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {return "Grade is too high!";}
 
@@ -80,6 +79,7 @@ void Bureaucrat::executeForm(const AForm& form) {
     std::cout << name << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
   }
 }
+
 /********************************************************************************/
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureaucrat) {

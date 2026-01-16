@@ -16,8 +16,10 @@
 #include <string>
 #include <iostream>
 #include <exception>
+#include "AForm.hpp"
 
 class AForm;
+
 class Bureaucrat {
   private:
     const std::string name;

@@ -16,6 +16,7 @@
 #include <string>
 
 class Bureaucrat;
+
 class Form{
   private:
     const std::string name;

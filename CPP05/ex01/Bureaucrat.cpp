@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "AForm.hpp"
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {return "Grade is too high!";}
 
@@ -59,7 +58,7 @@ void Bureaucrat::decrementGrade() {
   ++grade;
 }
 
-void Bureaucrat::signAForm(AForm &form) {
+void Bureaucrat::signForm(Form &form) {
   try {
     form.beSigned(*this);
     std::cout << name << " signs " << form.getName() <<std::endl; 

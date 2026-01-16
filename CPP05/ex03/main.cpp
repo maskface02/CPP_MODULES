@@ -4,7 +4,7 @@
 
 int main(void)
 {
-  std::cout << "=== Test 1: Intern Creates Forms ===" << std::endl;
+  std::cout << "Test 1: Intern Creates Forms" << std::endl;
   {
     Intern intern;
     AForm* form1 = intern.makeForm("presidential pardon", "Alice");
@@ -29,7 +29,7 @@ int main(void)
     (void)form4;
   }
   
-  std::cout << "\n=== Test 2: Sign and Execute Presidential Pardon ===" << std::endl;
+  std::cout << "Test 2: Sign and Execute Presidential Pardon" << std::endl;
   {
     Bureaucrat boss("Boss", 1);
     Intern intern;
@@ -44,7 +44,7 @@ int main(void)
     }
   }
   
-  std::cout << "\n=== Test 3: Low Grade Can't Execute ===" << std::endl;
+  std::cout << "Test 3: Low Grade Can't Execute" << std::endl;
   {
     Bureaucrat lowGrade("Intern", 150);
     Bureaucrat highGrade("Manager", 1);
@@ -52,15 +52,15 @@ int main(void)
     AForm* form = intern.makeForm("robotomy request", "Target");
     
     if (form) {
-      lowGrade.signAForm(*form);  // Will fail
-      highGrade.signAForm(*form); // Will succeed
-      lowGrade.executeForm(*form); // Will fail
-      highGrade.executeForm(*form); // Will succeed
+      lowGrade.signAForm(*form);  
+      highGrade.signAForm(*form); 
+      lowGrade.executeForm(*form);
+      highGrade.executeForm(*form);
       delete form;
     }
   }
   
-  std::cout << "\n=== Test 4: Shrubbery Creation ===" << std::endl;
+  std::cout << "Test 4: Shrubbery Creation" << std::endl;
   {
     Bureaucrat worker("Worker", 50);
     Intern intern;
@@ -72,6 +72,4 @@ int main(void)
       delete form;
     }
   }
-  
-  return 0;
 }

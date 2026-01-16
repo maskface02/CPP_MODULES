@@ -16,9 +16,12 @@ void func() {
 
 int main() {
     try {
-        func();
-    } catch (const std::exception& e) {
-        std::cout << "Caught: " << e.what() << "\n";
+      Test t;
+      throw std::runtime_error("Exception from function");
+      std::cout << "hello" << std::endl;
+    }
+    catch (const std::exception& e) {
+      std::cout << "Caught: " << e.what() << "\n";
     }
 }
 

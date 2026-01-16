@@ -14,15 +14,26 @@
 
 int main() {
     try {
-        Bureaucrat bob("Bob", 50);
-        std::cout << bob << std::endl;
+        Bureaucrat test("test", 50);
+        std::cout << test << std::endl;
         
-        bob.incrementGrade();
-        std::cout << bob << std::endl;
+        test.incrementGrade();
+        std::cout << test << std::endl;
         
-        Bureaucrat invalid("Invalid", 151);
+        Bureaucrat invalid("invalid", 151);
     } catch (std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
     }
-    return 0;
+    std::cout << "----------------------------------"<< std::endl;
+    try {
+      Bureaucrat test("test", 50);
+      std::cout << test << std::endl;
+      
+      test.incrementGrade();
+      std::cout << test << std::endl;
+      
+      Bureaucrat invalid("invalid", 0);
+    } catch (std::exception& e) {
+        std::cout << "Exception: " << e.what() << std::endl;
+    } 
 }

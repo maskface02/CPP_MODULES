@@ -9,8 +9,8 @@
 /*   Updated: 2026/01/12 17:23:45 by zatais            #+#    #+#             */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include "Bureaucrat.hpp"
 #include <string>
@@ -31,7 +31,7 @@ class AForm {
     AForm();
     virtual ~AForm();
     AForm(const AForm& otherObj);
-    AForm(const std::string n, const int rsg, const int rgte);
+    AForm(const std::string n, int rsg, int rgte);
     AForm&             operator=(const AForm& otherObj);
 
     class GradeTooHighException : public std::exception {
