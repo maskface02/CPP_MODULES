@@ -28,6 +28,6 @@ class ShrubberyCreationForm : public AForm {
     ShrubberyCreationForm(const ShrubberyCreationForm& otherObj);
     ShrubberyCreationForm& operator=(const ShrubberyCreationForm& otherObj);
 
-}
+};
 
 #endif
