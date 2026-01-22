@@ -234,7 +234,8 @@ void ScalarConverter::convert(std::string literal) {
     else if (literal == "-inf")
         value = -INFINITY;
     else
-        value = std::atof(literal.c_str());
+        value = std::atof(literal.c_str())ear
+          
     convertFromDouble(value);
     return;
   }

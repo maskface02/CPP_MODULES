@@ -3,7 +3,7 @@
 #include <cmath>
 
 int main() {
-     int i = NAN;
+    int i = NAN;
     double nanValue  = std::numeric_limits<double>::quiet_NaN();
     double posInf    = std::numeric_limits<double>::infinity();
     double negInf    = -std::numeric_limits<double>::infinity();
