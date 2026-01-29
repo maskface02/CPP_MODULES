@@ -14,10 +14,6 @@
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
-
 
 Base::~Base() {}
 
@@ -32,11 +28,9 @@ Base* generate(void) {
         case 1:
             std::cout << "Generated: B" << std::endl;
             return new B();
-        case 2:
+        default:
             std::cout << "Generated: C" << std::endl;
             return new C();
-        default:
-            return NULL;
     }
 }
 
@@ -52,8 +46,12 @@ void identify(Base* p) {
 }
 
 void identify(Base& p) {
+  A a;
+	B b;
+	C c;
+
   try {
-    (void)dynamic_cast<A&>(p);
+    a = dynamic_cast<A&>(p);
     std::cout << "A" << std::endl;
     return;
   }
@@ -62,7 +60,7 @@ void identify(Base& p) {
   }
   
   try {
-    (void)dynamic_cast<B&>(p);
+    b = dynamic_cast<B&>(p);
     std::cout << "B" << std::endl;
     return;
   }
@@ -71,7 +69,7 @@ void identify(Base& p) {
   }
 
   try {
-    (void)dynamic_cast<C&>(p);
+    c = dynamic_cast<C&>(p);
     std::cout << "C" << std::endl;
     return;
   }

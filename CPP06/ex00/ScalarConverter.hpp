@@ -15,11 +15,8 @@
 
 #include <string>
 #include <iostream>
-#include <sstream>
-#include <limits>
+#include <climits>
 #include <cmath>
-#include <iomanip>
-#include <cstdlib>
 
 class ScalarConverter {
 private:

@@ -29,7 +29,7 @@ int main () {
 
   uintptr_t t1 = Serializer::serialize(ptr);
   Data* t2 = Serializer::deserialize(t1);
-  
+
   std::cout << "***after***" << std::endl;
 
   std::cout << "\nt2" << std::endl;
@@ -49,4 +49,8 @@ int main () {
   std::cout << "t2: " << t2 <<std::endl;
   std::cout << "t1 to hex: 0x"<< std::hex << t1 << std::endl;
 
+  long t3 = reinterpret_cast<long>(ptr);
+  std::cout << "\nt3 to hex: 0x"<< t3 << std::endl;
+
+  delete ptr;
 }

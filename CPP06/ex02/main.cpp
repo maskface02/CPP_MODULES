@@ -30,10 +30,10 @@ int main() {
         std::cout << "Test " << i + 1 << ":" << std::endl;
         Base* ptr = generate();
         
-        std::cout << "Identify by pointer: ";
+        std::cout << "Identify by pointer: "<< std::endl;
         identify(ptr);
         
-        std::cout << "Identify by reference: ";
+        std::cout << "Identify by reference: "<< std::endl;
         identify(*ptr);
         
         delete ptr;
@@ -43,32 +43,29 @@ int main() {
     std::cout << "=== Testing with known types ===" << std::endl;
     std::cout << std::endl;
     
-    // Test with A
     std::cout << "Creating A:" << std::endl;
     Base* a = new A();
-    std::cout << "Pointer identification: ";
+    std::cout << "Pointer identification: "<< std::endl;
     identify(a);
-    std::cout << "Reference identification: ";
+    std::cout << "Reference identification: "<< std::endl;
     identify(*a);
     delete a;
     std::cout << std::endl;
     
-    // Test with B
     std::cout << "Creating B:" << std::endl;
     Base* b = new B();
-    std::cout << "Pointer identification: ";
+    std::cout << "Pointer identification: "<< std::endl;
     identify(b);
-    std::cout << "Reference identification: ";
+    std::cout << "Reference identification: "<< std::endl;
     identify(*b);
     delete b;
     std::cout << std::endl;
     
-    // Test with C
     std::cout << "Creating C:" << std::endl;
     Base* c = new C();
-    std::cout << "Pointer identification: ";
+    std::cout << "Pointer identification: "<< std::endl;
     identify(c);
-    std::cout << "Reference identification: ";
+    std::cout << "Reference identification: "<< std::endl;
     identify(*c);
     delete c;
     

@@ -11,9 +11,6 @@
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-#include <cctype>
-#include <climits>
-#include <cmath>
 
 ScalarConverter::ScalarConverter() {}
 
@@ -86,7 +83,7 @@ static bool isFloat(const std::string& literal) {
 }
 
 static void convertFromFloat(float value) {
-  if (std::isnan(value) || std::isinf(value))
+  if (isnan(value) || isinf(value))
     std::cout << "char: impossible" << std::endl;
   else if (value < 0 || value > 127)
     std::cout << "char: impossible" << std::endl;
@@ -95,16 +92,16 @@ static void convertFromFloat(float value) {
   else
     std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
   
-  if (std::isnan(value) || std::isinf(value))
+  if (isnan(value) || isinf(value))
     std::cout << "int: impossible" << std::endl;
   else if (value < INT_MIN || value > INT_MAX)
     std::cout << "int: impossible" << std::endl;
   else
     std::cout << "int: " << static_cast<int>(value) << std::endl;
 
-  if (std::isnan(value))
+  if (isnan(value))
     std::cout << "float: nanf" << std::endl;
-  else if (std::isinf(value)) {
+  else if (isinf(value)) {
     if (value > 0)
       std::cout << "float: +inff" << std::endl;
     else
@@ -113,9 +110,9 @@ static void convertFromFloat(float value) {
   else
     std::cout << "float: " << value << "f" << std::endl;
 
-  if (std::isnan(value))
+  if (isnan(value))
       std::cout << "double: nan" << std::endl;
-  else if (std::isinf(value)) {
+  else if (isinf(value)) {
     if (value > 0)
       std::cout << "double: +inf" << std::endl;
     else
@@ -148,7 +145,7 @@ static bool isDouble(const std::string& literal) {
 }
 
 static void convertFromDouble(double value) {
-  if (std::isnan(value) || std::isinf(value))
+  if (isnan(value) ||isinf(value))
     std::cout << "char: impossible" << std::endl;
   else if (value < 0 || value > 127)
     std::cout << "char: impossible" << std::endl;
@@ -157,16 +154,16 @@ static void convertFromDouble(double value) {
   else
     std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
 
-  if (std::isnan(value) || std::isinf(value))
+  if (isnan(value) || isinf(value))
     std::cout << "int: impossible" << std::endl;
   else if (value < INT_MIN || value > INT_MAX)
     std::cout << "int: impossible" << std::endl;
   else
     std::cout << "int: " << static_cast<int>(value) << std::endl;
   
-  if (std::isnan(value))
+  if (isnan(value))
     std::cout << "float: nanf" << std::endl;
-  else if (std::isinf(value)) {
+  else if (isinf(value)) {
     if (value > 0)
         std::cout << "float: +inff" << std::endl;
     else
@@ -175,9 +172,9 @@ static void convertFromDouble(double value) {
   else
       std::cout << "float: " << static_cast<float>(value) << "f" << std::endl;
   
-  if (std::isnan(value))
+  if (isnan(value))
     std::cout << "double: nan" << std::endl;
-  else if (std::isinf(value)) {
+  else if (isinf(value)) {
     if (value > 0)
       std::cout << "double: +inf" << std::endl;
     else
@@ -201,12 +198,12 @@ void ScalarConverter::convert(std::string literal) {
   }
   
   if (isInt(literal)) {
-    long temp = std::atol(literal.c_str());
+    long temp = atol(literal.c_str());
     if (temp < INT_MIN|| temp > INT_MAX) {
       std::cout << "type conversion is impossible" << std::endl;
       return;
     }
-    int value = temp;//static_cast<int>(temp);
+    int value = static_cast<int>(temp);
     convertFromInt(value);
     return;
   }
@@ -220,7 +217,7 @@ void ScalarConverter::convert(std::string literal) {
     else if (literal == "-inff")
       value = -INFINITY;
     else
-      value = std::atof(literal.c_str());
+      value = atof(literal.c_str());
     convertFromFloat(value);
     return;
   }
@@ -234,7 +231,7 @@ void ScalarConverter::convert(std::string literal) {
     else if (literal == "-inf")
         value = -INFINITY;
     else
-        value = std::atof(literal.c_str());
+        value = atof(literal.c_str());
           
     convertFromDouble(value);
     return;
