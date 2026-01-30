@@ -67,6 +67,7 @@ Array<T>& Array<T>::operator=(const Array& otherObj) {
     arr = new T[otherObj._size];
     while (++i < otherObj._size)
       arr[i] = otherObj.arr[i];
+    _size = otherObj._size;
   }
   return *this;
 }
