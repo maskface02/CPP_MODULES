@@ -35,6 +35,7 @@ class Array {
 };
 
 /******************************************************************************************/
+
 template <typename T>
 Array<T>::Array() : arr(NULL), _size(0) {}
 
@@ -47,7 +48,7 @@ template <typename T>
 Array<T>::Array(const Array& otherObj) : arr(new T[otherObj._size]), _size(otherObj._size) {
   int i = -1;
 
-  while (i < _size)
+  while (++i < _size)
     arr[i] = otherObj.arr[i];
 }
 
@@ -55,6 +56,7 @@ template <typename T>
 Array<T>::~Array() {delete[] arr;}
 
 /****************************************************/
+
 template <typename T>
 Array<T>& Array<T>::operator=(const Array& otherObj) {
   int i = -1;
@@ -71,18 +73,20 @@ Array<T>& Array<T>::operator=(const Array& otherObj) {
 
 template <typename T>
 T& Array<T>::operator[](int i) {
-  if (i >= _size || i < _size)
+  if (i >= _size || i < 0)
     throw std::out_of_range("index is out of bounds");
   return arr[i];
 }
 
 template <typename T>
 const T& Array<T>::operator[](int i) const {
-  if (i >= _size || i < _size)
+  if (i >= _size || i < 0)
     throw std::out_of_range("index is out of bounds");
   return arr[i];
 }
+
 /**************************************************/
+
 template <typename T>
 int Array<T>::size() const {return _size;}
 
