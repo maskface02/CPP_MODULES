@@ -14,7 +14,7 @@
 
 template<typename T>
 
-void iter(T* arr, const size_t arrLen, void (*f)(T&)) {
+void iter(T* arr, const size_t arrLen, void (*f)(T& arrAtIdx)) {
   size_t i = -1;
 
   while (++i < arrLen)
