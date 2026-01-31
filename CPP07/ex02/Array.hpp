@@ -75,14 +75,16 @@ Array<T>& Array<T>::operator=(const Array& otherObj) {
 template <typename T>
 T& Array<T>::operator[](int i) {
   if (i >= _size || i < 0)
-    throw std::out_of_range("index is out of bounds");
+    throw std::exception();
+    // throw std::out_of_range("index is out of bounds");
   return arr[i];
 }
 
 template <typename T>
 const T& Array<T>::operator[](int i) const {
   if (i >= _size || i < 0)
-    throw std::out_of_range("index is out of bounds");
+    throw std::exception();
+    // throw std::out_of_range("index is out of bounds");
   return arr[i];
 }
 
