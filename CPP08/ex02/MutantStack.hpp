@@ -9,8 +9,8 @@
 /*   Updated: 2026/02/12 16:04:04 by zatais           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef MUTANTSTACK
-#define MUTANTSTACK
+#ifndef MUTANTSTACK_HPP
+#define MUTANTSTACK_HPP
 
 #include <stack>
 

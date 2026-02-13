@@ -36,7 +36,6 @@ int main()
   { 
     std::cout << "normal "<< *it << std::endl;
     std::cout << "const "<< *cit << std::endl;
-    mstack.pop();
     ++it;
     ++cit;
   }

@@ -27,7 +27,7 @@ int main()
     try {
         std::vector<int>::iterator it = easyfind(vec, 3);
         std::cout << "Found at position: " << std::distance(vec.begin(),it) + 1 << std::endl;
-    } catch (std::string err) {
+    } catch (std::string &err) {
         std::cout << "Error: " << err << std::endl;
     }
 
@@ -39,13 +39,13 @@ int main()
     try {
         std::list<int>::iterator it = easyfind(lst, 20);
         std::cout << "Found in position: " << std::distance(lst.begin(), it) + 1 << std::endl;
-    } catch (std::string err) {
+    } catch (std::string &err) {
         std::cout << "Error: " << err << std::endl;
     }
 
     try {
         easyfind(vec, 99);
-    } catch (std::string err) {
+    } catch (std::string &err) {
         std::cout << "Error: " << err << std::endl;
     }
 }

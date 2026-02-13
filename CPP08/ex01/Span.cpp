@@ -72,8 +72,8 @@ int Span::longestSpan() const
 
 void Span::addMultiNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
   size_t size = static_cast<size_t>(distance(begin, end));
-  if ( size > maxSize  || !size)
-    throw std::out_of_range("Range issue!!");
+  if (numbers.size() + size > maxSize)
+    throw std::out_of_range("Cannot add");
   numbers.insert(numbers.begin(), begin, end);
 }
 
