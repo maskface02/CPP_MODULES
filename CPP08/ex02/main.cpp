@@ -11,9 +11,11 @@
 /* ************************************************************************** */
 
 #include <iostream>
+#include <list>
 #include "MutantStack.hpp"
 int main()
 { 
+  std::cout << "***MutantStack***" << std::endl;
   MutantStack<int> mstack;
   mstack.push(5);
   mstack.push(17);
@@ -36,10 +38,34 @@ int main()
   { 
     std::cout << "normal "<< *it << std::endl;
     std::cout << "const "<< *cit << std::endl;
-    mstack.pop();
     ++it;
     ++cit;
   }
- // *cit = 10; 
+  std::cout << "***List***"<< std::endl;
+  std::list<int> l;
+  l.push_back(5);
+  l.push_back(17);
+  std::cout << l.back() << std::endl;
+  l.pop_back();
+  std::cout << l.size() << std::endl;
+  l.push_back(3);
+  l.push_back(5);
+  l.push_back(737);
+  l.push_back(0);
+
+  std::list<int>::iterator lit = l.begin();
+  std::list<int>::iterator lite = l.end();
+  ++lit;
+  --lit;
+  std::list<int>::const_iterator lcit = l.begin();
+  ++lcit;
+  --lcit;
+  while (lit != lite)
+  { 
+    std::cout << "normal "<< *lit << std::endl;
+    std::cout << "const "<< *lcit << std::endl;
+    ++lit;
+    ++lcit;
+  }
   return 0;
 }
