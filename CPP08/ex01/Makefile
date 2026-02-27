@@ -4,6 +4,7 @@ CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 SRCS = main.cpp Span.cpp
 OBJS		= $(SRCS:.cpp=.o)
 HEADERS		= Span.hpp 
+
 GREEN		= \033[0;32m
 RED			= \033[0;31m
 YELLOW		= \033[0;33m
