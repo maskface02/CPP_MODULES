@@ -12,12 +12,49 @@
 
 
 #ifndef PMERGEME_HPP
-#define PMERGEME_HPP
+# define PMERGEME_HPP
+
+# include <deque>
+# include <vector>
+# include <string>
+# include <climits>
+# include <iostream>
+# include <algorithm>
+# include <sys/time.h>
+
+# include <sstream>
+# include <iomanip>
+# include <cstdlib>
+# include <cerrno>
 
 class PmergeMe {
-  private:
+private:
+	bool				      _parsed;
+	double				    _deqTime;
+	double				    _vecTime;
+	std::vector<int>	_origVec;
+	std::deque<int>		_origDeq;
+	std::vector<int>	_sortedVec;
+	std::deque<int>		_sortedDeq;
 
-  public:
+	std::vector<int>  _generateJacobsthal(int n) const;
+	bool				      _isValidNumber(const std::string &str) const;
+	std::deque<int>		_fordJohnsonDeq(std::deque<int> container) const;
+	std::vector<int>	_fordJohnsonVec(std::vector<int> container) const;
+	void				      _binaryInsertDeq(std::deque<int> &main, int elem) const;
+	void				      _binaryInsertVec(std::vector<int> &main, int elem) const;
+	void				      _printVec(const std::string &label, const std::vector<int> &seq) const;
+
+public:
+	PmergeMe();
+	~PmergeMe();
+  PmergeMe(const PmergeMe& other);
+  PmergeMe&         operator=(const PmergeMe& other);
+
+	void				      sortAndMeasure();
+	void				      displayAfter() const;
+	void				      displayBefore() const;
+	bool				      parseInput(int ac, char **av);
 };
 
 #endif // !PMERGEME_HPP
