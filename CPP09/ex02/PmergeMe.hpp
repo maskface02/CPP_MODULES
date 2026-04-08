@@ -29,21 +29,20 @@
 
 class PmergeMe {
 private:
-	bool				      _parsed;
 	double				    _deqTime;
 	double				    _vecTime;
-	std::vector<int>	_origVec;
 	std::deque<int>		_origDeq;
-	std::vector<int>	_sortedVec;
+	std::vector<int>	_origVec;
 	std::deque<int>		_sortedDeq;
+	std::vector<int>	_sortedVec;
 
-	std::vector<int>  _generateJacobsthal(int n) const;
-	bool				      _isValidNumber(const std::string &str) const;
-	std::deque<int>		_fordJohnsonDeq(std::deque<int> container) const;
-	std::vector<int>	_fordJohnsonVec(std::vector<int> container) const;
-	void				      _binaryInsertDeq(std::deque<int> &main, int elem) const;
-	void				      _binaryInsertVec(std::vector<int> &main, int elem) const;
-	void				      _printVec(const std::string &label, const std::vector<int> &seq) const;
+	std::vector<int>  _generateJacobsthal(int n);
+	bool				      _isValidNumber(std::string &str);
+	std::deque<int>		_fordJohnsonDeq(std::deque<int> container);
+	std::vector<int>	_fordJohnsonVec(std::vector<int> container);
+	void				      _binaryInsertDeq(std::deque<int> &main, int elem);
+	void				      _binaryInsertVec(std::vector<int> &main, int elem);
+	void				      _printVec(const std::string &label,  std::vector<int> &seq);
 
 public:
 	PmergeMe();
@@ -51,9 +50,9 @@ public:
   PmergeMe(const PmergeMe& other);
   PmergeMe&         operator=(const PmergeMe& other);
 
+	void				      displayAfter();
+	void				      displayBefore();
 	void				      sortAndMeasure();
-	void				      displayAfter() const;
-	void				      displayBefore() const;
 	bool				      parseInput(int ac, char **av);
 };
 
