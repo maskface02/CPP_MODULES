@@ -40,8 +40,8 @@ private:
 	bool				      _isValidNumber(std::string &str);
 	std::deque<int>		_fordJohnsonDeq(std::deque<int> container);
 	std::vector<int>	_fordJohnsonVec(std::vector<int> container);
-	void				      _binaryInsertDeq(std::deque<int> &main, int elem);
-	void				      _binaryInsertVec(std::vector<int> &main, int elem);
+	int				          _binaryInsertDeq(std::deque<int> &main, int elem, int high);
+	int				          _binaryInsertVec(std::vector<int> &main, int elem, int high);
 	void				      _printVec(const std::string &label,  std::vector<int> &seq);
 
 public:
