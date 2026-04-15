@@ -10,22 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef PMERGEME_HPP
 # define PMERGEME_HPP
 
 # include <deque>
 # include <vector>
 # include <string>
+# include <iomanip>
 # include <climits>
 # include <iostream>
 # include <algorithm>
 # include <sys/time.h>
 
-# include <sstream>
-# include <iomanip>
-# include <cstdlib>
-# include <cerrno>
 
 class PmergeMe {
 private:
@@ -40,8 +36,8 @@ private:
 	bool				      _isValidNumber(std::string &str);
 	std::deque<int>		_fordJohnsonDeq(std::deque<int> container);
 	std::vector<int>	_fordJohnsonVec(std::vector<int> container);
-	int				          _binaryInsertDeq(std::deque<int> &main, int elem, int high);
-	int				          _binaryInsertVec(std::vector<int> &main, int elem, int high);
+	int				        _binaryInsertDeq(std::deque<int> &main, int elem, int high);
+	int				        _binaryInsertVec(std::vector<int> &main, int elem, int high);
 	void				      _printVec(const std::string &label,  std::vector<int> &seq);
 
 public:
@@ -56,4 +52,4 @@ public:
 	bool				      parseInput(int ac, char **av);
 };
 
-#endif // !PMERGEME_HPP
+#endif 
