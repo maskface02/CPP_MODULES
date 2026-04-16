@@ -12,7 +12,7 @@
 
 #include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe() : _deqTime(0), _vecTime(0){}
+PmergeMe::PmergeMe() : _nums(0), _deqTime(0), _vecTime(0){}
 
 PmergeMe::~PmergeMe() {}
 
@@ -23,7 +23,9 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other){static_cast<void>(other); r
 /********************************************************************************************/
 
 bool PmergeMe::parseInput(int ac, char **av) {
-	for (int i = 1; i < ac; i++) {
+  int i = 1;
+
+	for (; i < ac; i++) {
 		std::string arg = av[i];
 		if (!_isValidNumber(arg))
 			return false;
@@ -38,6 +40,7 @@ bool PmergeMe::parseInput(int ac, char **av) {
 		_origVec.push_back(val);
 		_origDeq.push_back(static_cast<int>(val));
 	}
+  _nums = (i - 1) / 2 ;
 	return true;
 }
 
@@ -81,8 +84,6 @@ std::vector<int> PmergeMe::_generateJacobsthal(int n) {
   int               b = 3;
 	std::vector<int>	jacob;
 
-	if (n < 1)
-		return j;
 	if (n >= 1)
 		jacob.push_back(1);
 	while (b < n) {
@@ -92,18 +93,16 @@ std::vector<int> PmergeMe::_generateJacobsthal(int n) {
 		b = next;
 	}
 
-	for (size_t i = 0; i < jacob.size(); i++) {
+	for (size_t i = 0; i < jacob.size(); i++)
 		if (jacob[i] <= n)
 			j.push_back(jacob[i]);
-	}
 
-	bool used[3000] = {false};
+	bool used[_nums] = {false};
 	for (size_t i = 0; i < j.size(); i++)
 		used[j[i]] = true;
-	for (int i = n; i >= 1; i--) {
+	for (int i = n; i >= 1; i--)
 		if (!used[i])
 			j.push_back(i);
-	}
 
 	return j;
 }
