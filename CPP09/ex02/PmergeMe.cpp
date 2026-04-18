@@ -23,9 +23,9 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other){static_cast<void>(other); r
 /********************************************************************************************/
 
 bool PmergeMe::parseInput(int ac, char **av) {
-  int i = 1;
+  int i = 0;
 
-	for (; i < ac; i++) {
+	while (++i < ac) {
 		std::string arg = av[i];
 		if (!_isValidNumber(arg))
 			return false;
@@ -38,7 +38,7 @@ bool PmergeMe::parseInput(int ac, char **av) {
       return false;
 
 		_origVec.push_back(val);
-		_origDeq.push_back(static_cast<int>(val));
+		_origDeq.push_back(val);
 	}
   _nums = (i - 1) / 2 ;
 	return true;
@@ -57,7 +57,6 @@ void PmergeMe::displayBefore() {_printVec("Before:", _origVec);}
 
 void PmergeMe::displayAfter() {
 	_printVec("After: ", _sortedVec);
-	std::cout << std::fixed << std::setprecision(5);
 	std::cout << "Time to process a range of " << _origVec.size() << " elements with std::vector : " << _vecTime << " us" << std::endl;
 	std::cout << "Time to process a range of " << _origDeq.size() << " elements with std::deque : " << _deqTime << " us" << std::endl;
 }
@@ -67,9 +66,8 @@ void PmergeMe::_printVec(const std::string &label,  std::vector<int> &seq) {
 	size_t limit = seq.size();
 	if (seq.size() > 30)
 		limit = 15;
-	for (size_t i = 0; i < limit; i++) {
+	for (size_t i = 0; i < limit; i++)
 		std::cout << " " << seq[i];
-	}
 	if (seq.size() > 30) {
 		std::cout << " [...]";
 		for (size_t i = seq.size() - 15; i < seq.size(); i++)
