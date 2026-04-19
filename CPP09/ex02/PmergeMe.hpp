@@ -24,7 +24,6 @@
 
 class PmergeMe {
 private:
-  int _nums;
   double _deqTime;
   double _vecTime;
   std::deque<int> _origDeq;
