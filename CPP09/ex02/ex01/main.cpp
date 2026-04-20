@@ -5,29 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zatais <zatais@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/02 16:07:59 by zatais            #+#    #+#             */
-/*   Updated: 2026/04/20 15:54:21 by zatais           ###   ########.fr       */
+/*   Created: 2026/03/21 15:50:38 by zatais            #+#    #+#             */
+/*   Updated: 2026/03/21 15:50:38 by zatais           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "RPN.hpp"
 
-#include "PmergeMe.hpp"
-
-int main(int ac, char **av) {
-	if (ac <= 1) {
-		std::cerr << "Error" << std::endl;
-		return 1;
+int main(int argc, char **argv)
+{
+	if (argc != 2)
+	{
+		std::cout << "Usage: ./RPN <expression>" << std::endl;
+		return (1);
 	}
-
-	PmergeMe pm;
-
-	if (!pm.parseInput(ac, av)) {
-		std::cerr << "Error" << std::endl;
-		return 1;
+	try
+	{
+		RPN rpn(argv[1]);
+		std::cout << rpn.getResult() << std::endl;
 	}
-
-	pm.displayBefore();
-	pm.sortAndMeasure();
-	pm.displayAfter();
-
-	return 0;
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	return (0);
 }

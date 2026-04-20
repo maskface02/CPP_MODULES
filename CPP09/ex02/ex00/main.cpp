@@ -5,29 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zatais <zatais@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/02 16:07:59 by zatais            #+#    #+#             */
-/*   Updated: 2026/04/20 15:54:21 by zatais           ###   ########.fr       */
+/*   Created: 2026/03/16 15:56:50 by zatais            #+#    #+#             */
+/*   Updated: 2026/03/16 15:56:50 by zatais           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PmergeMe.hpp"
+#include "BitcoinExchange.hpp"
 
-int main(int ac, char **av) {
-	if (ac <= 1) {
-		std::cerr << "Error" << std::endl;
-		return 1;
-	}
-
-	PmergeMe pm;
-
-	if (!pm.parseInput(ac, av)) {
-		std::cerr << "Error" << std::endl;
-		return 1;
-	}
-
-	pm.displayBefore();
-	pm.sortAndMeasure();
-	pm.displayAfter();
-
-	return 0;
+int main(int argc, char **argv)
+{
+    if (argc == 2)
+    {
+        BitcoinExchange btc;
+        btc.readData();
+        btc.parseInputFile(argv[1]);
+    }
+    else
+        std::cerr << "Error: could not open file." << std::endl;
 }

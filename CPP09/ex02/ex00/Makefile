@@ -1,10 +1,10 @@
-NAME = PmergeMe 
-CXX			= c++ 
+NAME = btc 
+CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
-SRCS = main.cpp PmergeMe.cpp
+SRCS = main.cpp BitcoinExchange.cpp
 OBJS		= $(SRCS:.cpp=.o)
 
-HEADERS		= PmergeMe.hpp 
+HEADERS		= BitcoinExchange.hpp 
 GREEN		= \033[0;32m
 RED			= \033[0;31m
 YELLOW		= \033[0;33m

@@ -6,7 +6,7 @@
 /*   By: zatais <zatais@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/29 18:18:25 by zatais            #+#    #+#             */
-/*   Updated: 2026/03/29 18:18:25 by zatais           ###   ########.fr       */
+/*   Updated: 2026/04/20 15:54:35 by zatais           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,13 +123,15 @@ int PmergeMe::_binaryInsertDeq(std::deque<int> &main, int elem, int high) {
 }
 
 std::deque<int> PmergeMe::_fordJohnsonDeq(std::deque<int> container) {
+  size_t n;
   std::deque<int> deqA;
   std::deque<int> deqB;
+  int oddElem = -1;
+  std::deque<int> sortedA;
   std::deque<int> sortedB;
   std::deque<int> mainChain;
-  int oddElem = -1;
-  size_t n = container.size();
 
+  n = container.size();
   if (n == 1)
     return container;
   if (n == 2) {
@@ -151,8 +153,7 @@ std::deque<int> PmergeMe::_fordJohnsonDeq(std::deque<int> container) {
     }
   }
 
-  std::deque<int> sortedA = _fordJohnsonDeq(deqA);
-
+  sortedA = _fordJohnsonDeq(deqA);
   for (size_t i = 0; i < sortedA.size(); i++) {
     for (size_t j = 0; j < deqA.size(); j++) {
       if (deqA[j] == sortedA[i]) {
@@ -203,6 +204,7 @@ int PmergeMe::_binaryInsertVec(std::vector<int> &main, int elem, int high) {
 
   if (high == INT_MAX)
     high = main.size();
+
   while (low < high) {
     int mid = low + (high - low) / 2;
     if (main[mid] < elem)
@@ -273,7 +275,7 @@ std::vector<int> PmergeMe::_fordJohnsonVec(std::vector<int> container) {
 
   for (size_t j = 0; j < numPend; j++) {
     if (j < numPairs - 1)
-      partnerIdx[j] = j + 3;
+      partnerIdx[j] = j + 2;
     else
       partnerIdx[j] = INT_MAX;
   }
@@ -292,8 +294,9 @@ std::vector<int> PmergeMe::_fordJohnsonVec(std::vector<int> container) {
 }
 
 void PmergeMe::sortAndMeasure() {
-  timeval start, end;
-
+  timeval end;
+  timeval start;
+  
   gettimeofday(&start, NULL);
   _sortedVec = _fordJohnsonVec(_origVec);
   gettimeofday(&end, NULL);
