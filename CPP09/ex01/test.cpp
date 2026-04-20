@@ -1,16 +1,11 @@
 #include <iostream>
-#include <input
-tream>
+#include <sstream>
 #include <string>
-
 bool isNumber(const std::string& token, int& num)
 {
   std::string leftover;
-  std::stringstream input
-(token);
-  if (input
- >> num && !(input
- >> leftover))
+  std::stringstream input(token);
+  if (input >> num && !(input >> leftover))
     return true;
   std::cout << "leftover: for " << token <<" is " << leftover << "" << std::endl;
   return false;

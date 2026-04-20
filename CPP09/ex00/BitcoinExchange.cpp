@@ -47,9 +47,11 @@ int BitcoinExchange::readData() {
 }
 
 int BitcoinExchange::checkDate(std::string date){
+  int i =-1;
+  
   if (date.length() != 10 || date[4] != '-' || date[7] != '-')
     return 0;
-  int i =-1;
+
   while (++i < 10)
   {
     if (i == 4 || i == 7)
@@ -142,7 +144,7 @@ int BitcoinExchange::parseInputFile(char *fileName) {
       header+= 1;
     if (inputData.empty())
       continue;
-    if ((inputData != "date | value"))
+    if (inputData != "date | value")
     {
       if (header > 1)
       {

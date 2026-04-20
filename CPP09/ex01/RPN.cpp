@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "RPN.hpp"
-#include <stdexcept>
 
 RPN::RPN(){}
 
@@ -61,7 +60,9 @@ void RPN::operate(double (RPN::*f)(double a, double b)) {
 }
 
 double RPN::add(double a, double b) {return a + b;}
+
 double RPN::mul(double a, double b) {return a * b;}
+
 double RPN::div(double a, double b) {
   if (!b)
     throw std::domain_error("Error : Division by zero!!");
