@@ -55,7 +55,7 @@ void RPN::operate(double (RPN::*f)(double a, double b)) {
  stack.pop();
  double y = stack.top();
  stack.pop();
- double z = (this->*f)(x, y);
+ double z = (this->*f)(y, x);
  stack.push(z);
 }
 
